@@ -47,6 +47,21 @@ namespace CapaPresentacion
             cbRol.DisplayMember = "Texto";
             cbRol.ValueMember = "Valor";
             cbRol.SelectedIndex = 0;
+
+            foreach (DataGridViewColumn column in dgvData.Columns)
+            {
+                if(column.Visible == true && column.Name != "btnSeleccionar")
+                {
+                    cbBusqueda.Items.Add(new OpcionCombo()
+                    {
+                        Valor = column.Name,
+                        Texto = column.HeaderText
+                    });
+                }
+            }
+            cbBusqueda.DisplayMember = "Texto";
+            cbBusqueda.ValueMember = "Valor";
+            cbBusqueda.SelectedIndex = 0;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -59,6 +74,17 @@ namespace CapaPresentacion
                 ((OpcionCombo) cbEstado.SelectedItem).Valor.ToString(),
                 ((OpcionCombo) cbEstado.SelectedItem).Texto.ToString()
             });
+        }
+
+        private void Limpiar()
+        {
+            txtId.Text = "0";
+            txtDocumento.Text = "";
+            txtNombreCompleto.Text = "";
+            txtCorreo.Text = "";
+            txtConfirmarClave.Text = "";
+            cbRol.SelectedIndex = 0;
+            cbEstado.SelectedIndex = 0;
         }
     }
 }
