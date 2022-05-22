@@ -86,6 +86,12 @@
     <Compile Include="FormCompra.Designer.cs">
       <DependentUpon>FormCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDetalleCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetalleCompra.Designer.cs">
+      <DependentUpon>FormDetalleCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>

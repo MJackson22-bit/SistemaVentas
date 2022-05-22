@@ -72,7 +72,37 @@ namespace SistemaVentas
 
         private void subMenuRegistarVenta_Click(object sender, EventArgs e)
         {
-            open_Form(menuMantenedor, new FormVenta());
+            open_Form(menuVentas, new FormVenta());
+        }
+
+        private void subMenuDetalleVenta_Click(object sender, EventArgs e)
+        {
+            open_Form(menuVentas, new FormDetalleVenta());
+        }
+
+        private void subMenuDetalleCompra_Click(object sender, EventArgs e)
+        {
+            open_Form(menuCompras, new FormDetalleCompra());
+        }
+
+        private void subMenuRegistarCompra_Click(object sender, EventArgs e)
+        {
+            open_Form(menuCompras, new FormCompra());
+        }
+
+        private void menuClientes_Click(object sender, EventArgs e)
+        {
+            open_Form((IconMenuItem)sender, new FormCliente());
+        }
+
+        private void menuProveedores_Click(object sender, EventArgs e)
+        {
+            open_Form((IconMenuItem)sender, new FormProveedor());
+        }
+
+        private void menuReportes_Click(object sender, EventArgs e)
+        {
+            open_Form((IconMenuItem)sender, new FormReporte());
         }
     }
 }
