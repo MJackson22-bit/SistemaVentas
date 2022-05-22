@@ -59,5 +59,15 @@ namespace SistemaVentas
         {
             open_Form((IconMenuItem)sender, new FormUsuario());
         }
+
+        private void subMenuCategoria_Click(object sender, EventArgs e)
+        {
+            open_Form(menuMantenedor, new FormCategoria());
+        }
+
+        private void subMenuProducto_Click(object sender, EventArgs e)
+        {
+            open_Form(menuMantenedor, new FormCategoria());
+        }
     }
 }
