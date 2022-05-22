@@ -33,6 +33,14 @@ namespace SistemaVentas
         private void Inicio_Load(object sender, EventArgs e)
         {
             List<Permiso> listPermiso = new CNPermiso().listar(userCurrent.IdUsuario);
+            foreach(IconMenuItem iconMenu in menu.Items)
+            {
+                bool find = listPermiso.Any(m => m.NombreMenu == iconMenu.Name);
+                if(find == false)
+                {
+                    iconMenu.Visible = false;
+                }
+            }
             lblUsuario.Text = userCurrent.NombreCompleto;
         }
 
