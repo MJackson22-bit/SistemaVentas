@@ -127,4 +127,10 @@
   <data name="kisspng-point-of-sale-computer-software-product-manuals-sa-pos-icon-5b4c656c487511.1886774915317333562968" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kisspng-point-of-sale-computer-software-product-manuals-sa-pos-icon-5b4c656c487511.1886774915317333562968.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="microsoft_excel_2019_418px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\microsoft_excel_2019_418px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="microsoft_excel_2019_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\microsoft_excel_2019_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

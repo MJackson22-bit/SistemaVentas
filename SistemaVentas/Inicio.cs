@@ -85,7 +85,7 @@ namespace SistemaVentas
 
         private void subMenuProducto_Click(object sender, EventArgs e)
         {
-            open_Form(menuMantenedor, new FormCategoria());
+            open_Form(menuMantenedor, new FormProducto());
         }
 
         private void subMenuRegistarVenta_Click(object sender, EventArgs e)
