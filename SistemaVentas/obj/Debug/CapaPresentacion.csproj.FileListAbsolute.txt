@@ -38,3 +38,5 @@ C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVenta
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.csproj.CopyComplete
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.exe
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.pdb
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormProducto.resources
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormUsuario.resources
