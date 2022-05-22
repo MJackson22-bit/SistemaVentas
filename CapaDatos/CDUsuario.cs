@@ -66,9 +66,9 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Correo", usuario.Correo);
                     cmd.Parameters.AddWithValue("Clave", usuario.Clave);
                     cmd.Parameters.AddWithValue("IdRol", usuario.ORol.IdRol);
-                    cmd.Parameters.AddWithValue("Esatdo", usuario.Estado);
-                    cmd.Parameters.AddWithValue("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("Estado", usuario.Estado);
+                    cmd.Parameters.Add("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     cmd.ExecuteNonQuery();
@@ -98,9 +98,9 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Correo", usuario.Correo);
                     cmd.Parameters.AddWithValue("Clave", usuario.Clave);
                     cmd.Parameters.AddWithValue("IdRol", usuario.ORol.IdRol);
-                    cmd.Parameters.AddWithValue("Esatdo", usuario.Estado);
-                    cmd.Parameters.AddWithValue("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("Estado", usuario.Estado);
+                    cmd.Parameters.Add("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     cmd.ExecuteNonQuery();
@@ -127,8 +127,8 @@ namespace CapaDatos
                 {
                     SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", connection);
                     cmd.Parameters.AddWithValue("IdUsuario", usuario.IdUsuario);
-                    cmd.Parameters.AddWithValue("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     cmd.ExecuteNonQuery();

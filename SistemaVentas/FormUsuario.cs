@@ -84,15 +84,37 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            /*dgvData.Rows.Add(new object[]
+            string message = string.Empty;
+            Usuario usuario = new Usuario()
             {
-                "", txtId.Text, txtDocumento.Text, txtNombreCompleto.Text, txtCorreo.Text, txtClave.Text,
-                ((OpcionCombo) cbRol.SelectedItem).Valor.ToString(),
-                ((OpcionCombo) cbRol.SelectedItem).Texto.ToString(),
-                ((OpcionCombo) cbEstado.SelectedItem).Valor.ToString(),
-                ((OpcionCombo) cbEstado.SelectedItem).Texto.ToString()
-            });
-            Limpiar();*/
+                IdUsuario = Convert.ToInt32(txtId.Text),
+                Documento = txtDocumento.Text,
+                NombreCompleto = txtNombreCompleto.Text,
+                Correo = txtDocumento.Text,
+                Clave = txtClave.Text,
+                ORol = new Rol(){
+                    IdRol = Convert.ToInt32(((OpcionCombo)cbRol.SelectedItem).Valor)
+
+                },
+                Estado = Convert.ToInt32(((OpcionCombo) cbEstado.SelectedItem).Valor) == 1 ? true : false
+            };
+            int idiUsuarioGenerado = new CNUsuario().Registar(usuario, out message);
+            if(idiUsuarioGenerado != 0)
+            {
+                dgvData.Rows.Add(new object[]
+                {
+                    "", txtId.Text, txtDocumento.Text, txtNombreCompleto.Text, txtCorreo.Text, txtClave.Text,
+                    ((OpcionCombo) cbRol.SelectedItem).Valor.ToString(),
+                    ((OpcionCombo) cbRol.SelectedItem).Texto.ToString(),
+                    ((OpcionCombo) cbEstado.SelectedItem).Valor.ToString(),
+                    ((OpcionCombo) cbEstado.SelectedItem).Texto.ToString()
+                });
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show(message);
+            }
         }
 
         private void Limpiar()
@@ -102,6 +124,7 @@ namespace CapaPresentacion
             txtDocumento.Text = "";
             txtNombreCompleto.Text = "";
             txtCorreo.Text = "";
+            txtClave.Text = "";
             txtConfirmarClave.Text = "";
             cbRol.SelectedIndex = 0;
             cbEstado.SelectedIndex = 0;
