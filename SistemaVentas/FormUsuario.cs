@@ -62,6 +62,24 @@ namespace CapaPresentacion
             cbBusqueda.DisplayMember = "Texto";
             cbBusqueda.ValueMember = "Valor";
             cbBusqueda.SelectedIndex = 0;
+
+            //Mostrar todos los usuarios
+            List<Usuario> listaUsuario = new CNUsuario().listar();
+            foreach (Usuario item in listaUsuario)
+            {
+                dgvData.Rows.Add(new object[]
+                {
+                    "", item.IdUsuario, item.Documento, item.NombreCompleto, item.Correo, item.Clave,
+                    item.ORol.IdRol,
+                    item.ORol.Descripcion,
+                    item.Estado == true ? 1 : 0,
+                    item.Estado == true ? "Activo" : "No Activo"
+                });
+            }
+            cbRol.DisplayMember = "Texto";
+            cbRol.ValueMember = "Valor";
+            cbRol.SelectedIndex = 0;
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
