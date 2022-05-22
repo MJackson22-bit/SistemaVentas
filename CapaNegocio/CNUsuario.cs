@@ -15,5 +15,17 @@ namespace CapaNegocio
         {
             return objectUsuario.listar();
         }
+        public int Registar(Usuario usuario, out string message)
+        {
+            return objectUsuario.Registrar(usuario, out message);
+        }
+        public bool Editar(Usuario usuario, out string message)
+        {
+            return objectUsuario.Editar(usuario, out message);
+        }
+        public bool Eliminar(Usuario usuario, out string message)
+        {
+            return objectUsuario.Eliminar(usuario, out message);
+        }
     }
 }

@@ -51,5 +51,97 @@ namespace CapaDatos
             }
             return lista;
         }
+
+        public int Registrar(Usuario usuario, out string message)
+        {
+            int idiUsuarioGenerado = 0;
+            message = string.Empty;
+            try
+            {
+                using(SqlConnection connection = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_REGISTRARUSUARIO", connection);
+                    cmd.Parameters.AddWithValue("Documento", usuario.Documento);
+                    cmd.Parameters.AddWithValue("Nombre_Completo", usuario.NombreCompleto);
+                    cmd.Parameters.AddWithValue("Correo", usuario.Correo);
+                    cmd.Parameters.AddWithValue("Clave", usuario.Clave);
+                    cmd.Parameters.AddWithValue("IdRol", usuario.ORol.IdRol);
+                    cmd.Parameters.AddWithValue("Esatdo", usuario.Estado);
+                    cmd.Parameters.AddWithValue("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    idiUsuarioGenerado = Convert.ToInt32(cmd.Parameters["IdUsuarioResultado"].Value);
+                    message = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }catch(Exception e)
+            {
+                idiUsuarioGenerado = 0;
+                message = e.Message;
+            }
+            return idiUsuarioGenerado;
+        }
+
+        public bool Editar(Usuario usuario, out string message)
+        {
+            bool respuesta = false;
+            message = string.Empty;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", connection);
+                    cmd.Parameters.AddWithValue("IdUsuario", usuario.IdUsuario);
+                    cmd.Parameters.AddWithValue("Documento", usuario.Documento);
+                    cmd.Parameters.AddWithValue("Nombre_Completo", usuario.NombreCompleto);
+                    cmd.Parameters.AddWithValue("Correo", usuario.Correo);
+                    cmd.Parameters.AddWithValue("Clave", usuario.Clave);
+                    cmd.Parameters.AddWithValue("IdRol", usuario.ORol.IdRol);
+                    cmd.Parameters.AddWithValue("Esatdo", usuario.Estado);
+                    cmd.Parameters.AddWithValue("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    message = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+                message = e.Message;
+            }
+            return respuesta;
+        }
+
+
+        public bool Eliminar(Usuario usuario, out string message)
+        {
+            bool respuesta = false;
+            message = string.Empty;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", connection);
+                    cmd.Parameters.AddWithValue("IdUsuario", usuario.IdUsuario);
+                    cmd.Parameters.AddWithValue("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    message = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+                message = e.Message;
+            }
+            return respuesta;
+        }
     }
 }
