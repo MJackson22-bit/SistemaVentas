@@ -33,14 +33,6 @@ namespace SistemaVentas
         private void Inicio_Load(object sender, EventArgs e)
         {
             List<Permiso> listPermiso = new CNPermiso().listar(userCurrent.IdUsuario);
-            if(listPermiso == null)
-            {
-                MessageBox.Show("No se han enconrtado permisos", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                MessageBox.Show("Exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
             lblUsuario.Text = userCurrent.NombreCompleto;
         }
 
