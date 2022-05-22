@@ -1,4 +1,6 @@
-﻿using CapaPresentacion.Utilidades;
+﻿using CapaEntidad;
+using CapaNegocio;
+using CapaPresentacion.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,6 +35,18 @@ namespace CapaPresentacion
             cbEstado.DisplayMember = "Texto";
             cbEstado.ValueMember = "Valor";
             cbEstado.SelectedIndex = 0;
+            List<Rol> listaRol = new CNRol().listar();
+            foreach (Rol rol in listaRol)
+            {
+                cbRol.Items.Add(new OpcionCombo()
+                {
+                    Valor = rol.IdRol,
+                    Texto = rol.Descripcion
+                });
+            }
+            cbRol.DisplayMember = "Texto";
+            cbRol.ValueMember = "Valor";
+            cbRol.SelectedIndex = 0;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace CapaNegocio
 {
     public class CNRol
     {
-        private CNRol objectRol = new CNRol();
+        private CDRol objectRol = new CDRol();
         public List<Rol> listar()
         {
             return objectRol.listar();
