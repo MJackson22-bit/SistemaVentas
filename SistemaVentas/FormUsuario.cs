@@ -84,7 +84,7 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            dgvData.Rows.Add(new object[]
+            /*dgvData.Rows.Add(new object[]
             {
                 "", txtId.Text, txtDocumento.Text, txtNombreCompleto.Text, txtCorreo.Text, txtClave.Text,
                 ((OpcionCombo) cbRol.SelectedItem).Valor.ToString(),
@@ -92,10 +92,12 @@ namespace CapaPresentacion
                 ((OpcionCombo) cbEstado.SelectedItem).Valor.ToString(),
                 ((OpcionCombo) cbEstado.SelectedItem).Texto.ToString()
             });
+            Limpiar();*/
         }
 
         private void Limpiar()
         {
+            txtIndice.Text = "-1";
             txtId.Text = "0";
             txtDocumento.Text = "";
             txtNombreCompleto.Text = "";
@@ -128,6 +130,7 @@ namespace CapaPresentacion
                 int indice = e.RowIndex;
                 if (indice >= 0)
                 {
+                    txtIndice.Text = indice.ToString();
                     txtId.Text = dgvData.Rows[indice].Cells["Id"].Value.ToString();
                     txtDocumento.Text = dgvData.Rows[indice].Cells["Documento"].Value.ToString();
                     txtNombreCompleto.Text = dgvData.Rows[indice].Cells["NombreCompleto"].Value.ToString();
