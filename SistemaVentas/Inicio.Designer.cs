@@ -42,6 +42,8 @@
             this.contenedor = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.menuCategoria = new FontAwesome.Sharp.IconMenuItem();
+            this.menuProducto = new FontAwesome.Sharp.IconMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +82,9 @@
             // menuMantenedor
             // 
             this.menuMantenedor.AutoSize = false;
+            this.menuMantenedor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuCategoria,
+            this.menuProducto});
             this.menuMantenedor.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuMantenedor.IconChar = FontAwesome.Sharp.IconChar.Tools;
             this.menuMantenedor.IconColor = System.Drawing.Color.Black;
@@ -231,6 +236,24 @@
             this.lblUsuario.TabIndex = 5;
             this.lblUsuario.Text = "Usuario";
             // 
+            // menuCategoria
+            // 
+            this.menuCategoria.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.menuCategoria.IconColor = System.Drawing.Color.Black;
+            this.menuCategoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuCategoria.Name = "menuCategoria";
+            this.menuCategoria.Size = new System.Drawing.Size(180, 22);
+            this.menuCategoria.Text = "Categoría";
+            // 
+            // menuProducto
+            // 
+            this.menuProducto.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.menuProducto.IconColor = System.Drawing.Color.Black;
+            this.menuProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuProducto.Name = "menuProducto";
+            this.menuProducto.Size = new System.Drawing.Size(180, 22);
+            this.menuProducto.Text = "Producto";
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -271,6 +294,8 @@
         private System.Windows.Forms.Panel contenedor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUsuario;
+        private FontAwesome.Sharp.IconMenuItem menuCategoria;
+        private FontAwesome.Sharp.IconMenuItem menuProducto;
     }
 }
 

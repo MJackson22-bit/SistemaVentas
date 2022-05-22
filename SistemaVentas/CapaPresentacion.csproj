@@ -68,17 +68,59 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCategoria.Designer.cs">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCliente.Designer.cs">
+      <DependentUpon>FormCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompra.Designer.cs">
+      <DependentUpon>FormCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProducto.Designer.cs">
+      <DependentUpon>FormProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProveedor.Designer.cs">
+      <DependentUpon>FormProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReporte.Designer.cs">
+      <DependentUpon>FormReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormUsuario.Designer.cs">
       <DependentUpon>FormUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVenta.Designer.cs">
+      <DependentUpon>FormVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -90,6 +132,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProducto.resx">
+      <DependentUpon>FormProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>
