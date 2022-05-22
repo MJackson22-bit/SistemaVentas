@@ -48,5 +48,17 @@ namespace CapaPresentacion
             cbRol.ValueMember = "Valor";
             cbRol.SelectedIndex = 0;
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            dgvData.Rows.Add(new object[]
+            {
+                "", txtId.Text, txtDocumento.Text, txtNombreCompleto.Text, txtCorreo.Text, txtClave.Text,
+                ((OpcionCombo) cbRol.SelectedItem).Valor.ToString(),
+                ((OpcionCombo) cbRol.SelectedItem).Texto.ToString(),
+                ((OpcionCombo) cbEstado.SelectedItem).Valor.ToString(),
+                ((OpcionCombo) cbEstado.SelectedItem).Texto.ToString()
+            });
+        }
     }
 }
