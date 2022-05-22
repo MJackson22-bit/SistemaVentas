@@ -1,0 +1,11 @@
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\bin\Debug\CapaEntidad.dll
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\bin\Debug\CapaEntidad.pdb
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.pdb
