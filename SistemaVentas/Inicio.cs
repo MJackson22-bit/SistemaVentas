@@ -69,5 +69,7 @@ namespace SistemaVentas
         {
             open_Form(menuMantenedor, new FormCategoria());
         }
+
+       
     }
 }
