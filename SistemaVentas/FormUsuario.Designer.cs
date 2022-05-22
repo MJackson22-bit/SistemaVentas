@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -292,6 +294,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSelecionar,
@@ -305,7 +308,24 @@
             this.Estado,
             this.EstadoValor});
             this.dataGridView1.Location = new System.Drawing.Point(253, 67);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(750, 468);
             this.dataGridView1.TabIndex = 19;
             // 
@@ -325,58 +345,68 @@
             // 
             this.btnSelecionar.HeaderText = "";
             this.btnSelecionar.Name = "btnSelecionar";
+            this.btnSelecionar.ReadOnly = true;
             this.btnSelecionar.Width = 30;
             // 
             // IdUsuario
             // 
             this.IdUsuario.HeaderText = "IdUsuario";
             this.IdUsuario.Name = "IdUsuario";
+            this.IdUsuario.ReadOnly = true;
             this.IdUsuario.Visible = false;
             // 
             // Documento
             // 
             this.Documento.HeaderText = "Nro. Documento";
             this.Documento.Name = "Documento";
+            this.Documento.ReadOnly = true;
             this.Documento.Width = 150;
             // 
             // Nombre_Completo
             // 
             this.Nombre_Completo.HeaderText = "Nombre Completo";
             this.Nombre_Completo.Name = "Nombre_Completo";
+            this.Nombre_Completo.ReadOnly = true;
             this.Nombre_Completo.Width = 180;
             // 
             // Correo
             // 
             this.Correo.HeaderText = "Correo";
             this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
             this.Correo.Width = 150;
             // 
             // Clave
             // 
             this.Clave.HeaderText = "Clave";
             this.Clave.Name = "Clave";
+            this.Clave.ReadOnly = true;
             this.Clave.Visible = false;
             // 
             // IdRol
             // 
             this.IdRol.HeaderText = "IdRol";
             this.IdRol.Name = "IdRol";
+            this.IdRol.ReadOnly = true;
             this.IdRol.Visible = false;
             // 
             // Rol
             // 
             this.Rol.HeaderText = "Rol";
             this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
             // 
             // Estado
             // 
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // EstadoValor
             // 
             this.EstadoValor.HeaderText = "EstadoValor";
             this.EstadoValor.Name = "EstadoValor";
+            this.EstadoValor.ReadOnly = true;
             this.EstadoValor.Visible = false;
             // 
             // txtId
