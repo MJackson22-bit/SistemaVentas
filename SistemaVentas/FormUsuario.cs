@@ -104,5 +104,56 @@ namespace CapaPresentacion
             cbRol.SelectedIndex = 0;
             cbEstado.SelectedIndex = 0;
         }
+
+        private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if(e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.Check_Circle_24px.Width;
+                var h = Properties.Resources.Check_Circle_24px.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+                e.Graphics.DrawImage(Properties.Resources.Check_Circle_24px, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            {
+                int indice = e.RowIndex;
+                if (indice >= 0)
+                {
+                    txtId.Text = dgvData.Rows[indice].Cells["Id"].Value.ToString();
+                    txtDocumento.Text = dgvData.Rows[indice].Cells["Documento"].Value.ToString();
+                    txtNombreCompleto.Text = dgvData.Rows[indice].Cells["NombreCompleto"].Value.ToString();
+                    txtCorreo.Text = dgvData.Rows[indice].Cells["Correo"].Value.ToString();
+                    txtClave.Text = dgvData.Rows[indice].Cells["Clave"].Value.ToString();
+                    txtConfirmarClave.Text = dgvData.Rows[indice].Cells["Clave"].Value.ToString();
+                    foreach (OpcionCombo opcion in cbRol.Items)
+                    {
+                        if(Convert.ToInt32(opcion.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["IdRol"].Value))
+                        {
+                            int indiceCombo = cbRol.Items.IndexOf(opcion);
+                            cbRol.SelectedIndex = indiceCombo;
+                            break;
+                        }
+                    }
+                    foreach (OpcionCombo opcion in cbEstado.Items)
+                    {
+                        if (Convert.ToInt32(opcion.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["EstadoValor"].Value))
+                        {
+                            int indiceCombo = cbEstado.Items.IndexOf(opcion);
+                            cbEstado.SelectedIndex = indiceCombo;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

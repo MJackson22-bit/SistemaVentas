@@ -204,5 +204,20 @@
       <Name>CapaNegocio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check Circle_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash_can_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check Circle_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_24px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

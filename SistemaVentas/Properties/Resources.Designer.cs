@@ -63,6 +63,26 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Check_Circle_24px {
+            get {
+                object obj = ResourceManager.GetObject("Check_Circle_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Delete_24px {
+            get {
+                object obj = ResourceManager.GetObject("Delete_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kisspng_point_of_sale_computer_software_product_manuals_sa_pos_icon_5b4c656c487511_1886774915317333562968 {
             get {
                 object obj = ResourceManager.GetObject("kisspng-point-of-sale-computer-software-product-manuals-sa-pos-icon-5b4c656c48751" +
