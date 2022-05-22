@@ -19,8 +19,16 @@ namespace SistemaVentas
         public static Usuario userCurrent;
         private static IconMenuItem menuActivo = null;
         private static Form formActivo = null;
-        public Inicio(Usuario usuario)
+        public Inicio(Usuario usuario = null)
         {
+            if (usuario == null) usuario = new Usuario()
+            {
+                NombreCompleto = "Admin Predefinido",
+                IdUsuario = 1
+            };
+            else
+                userCurrent = usuario;
+   
             userCurrent = usuario;
             InitializeComponent();
         }
