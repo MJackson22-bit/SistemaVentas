@@ -70,6 +70,9 @@ namespace SistemaVentas
             open_Form(menuMantenedor, new FormCategoria());
         }
 
-       
+        private void subMenuRegistarVenta_Click(object sender, EventArgs e)
+        {
+            open_Form(menuMantenedor, new FormVenta());
+        }
     }
 }

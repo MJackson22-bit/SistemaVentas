@@ -146,6 +146,7 @@
             this.subMenuRegistarVenta.Name = "subMenuRegistarVenta";
             this.subMenuRegistarVenta.Size = new System.Drawing.Size(180, 22);
             this.subMenuRegistarVenta.Text = "Registrar";
+            this.subMenuRegistarVenta.Click += new System.EventHandler(this.subMenuRegistarVenta_Click);
             // 
             // menuCompras
             // 
