@@ -30,7 +30,7 @@ namespace CapaPresentacion
             Usuario usuario = new CNUsuario().listar().Where(u => u.Documento == txtDocumento.Text && u.Clave == txtClave.Text).FirstOrDefault();
             if(usuario != null)
             {
-                Inicio inicio = new Inicio();
+                Inicio inicio = new Inicio(usuario);
                 inicio.Show();
                 this.Hide();
                 inicio.FormClosing += form_Closing;
