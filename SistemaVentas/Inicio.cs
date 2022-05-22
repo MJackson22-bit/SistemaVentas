@@ -122,5 +122,7 @@ namespace SistemaVentas
         {
             open_Form((IconMenuItem)sender, new FormReporte());
         }
+
+       
     }
 }
