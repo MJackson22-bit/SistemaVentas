@@ -82,7 +82,7 @@
             // 
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("Cera Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(90, 9);
+            this.label10.Location = new System.Drawing.Point(101, 9);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(6);
@@ -95,7 +95,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Cera Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(102, 18);
+            this.label1.Location = new System.Drawing.Point(113, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 20);
             this.label1.TabIndex = 75;
@@ -109,7 +109,7 @@
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(106, 41);
+            this.groupBox1.Location = new System.Drawing.Point(117, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(398, 76);
             this.groupBox1.TabIndex = 76;
@@ -167,7 +167,7 @@
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(510, 41);
+            this.groupBox2.Location = new System.Drawing.Point(521, 41);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(389, 76);
             this.groupBox2.TabIndex = 77;
@@ -230,7 +230,7 @@
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(106, 123);
+            this.groupBox3.Location = new System.Drawing.Point(117, 123);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(698, 94);
             this.groupBox3.TabIndex = 78;
@@ -362,7 +362,7 @@
             this.Cantidad,
             this.SubTotal,
             this.btnSeleccionar});
-            this.dgvData.Location = new System.Drawing.Point(106, 223);
+            this.dgvData.Location = new System.Drawing.Point(117, 223);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
@@ -422,7 +422,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Cera Pro", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::CapaPresentacion.Properties.Resources.add_48px;
-            this.button1.Location = new System.Drawing.Point(810, 130);
+            this.button1.Location = new System.Drawing.Point(821, 130);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 87);
             this.button1.TabIndex = 80;
@@ -432,7 +432,7 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(810, 286);
+            this.textBox8.Location = new System.Drawing.Point(821, 286);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
@@ -445,7 +445,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(808, 268);
+            this.label12.Location = new System.Drawing.Point(819, 268);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(89, 15);
@@ -454,7 +454,7 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(811, 390);
+            this.textBox9.Location = new System.Drawing.Point(822, 390);
             this.textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
@@ -467,7 +467,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.White;
             this.label13.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(809, 372);
+            this.label13.Location = new System.Drawing.Point(820, 372);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 15);
@@ -476,7 +476,7 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(810, 336);
+            this.textBox10.Location = new System.Drawing.Point(821, 336);
             this.textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(86, 20);
@@ -488,7 +488,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.White;
             this.label14.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(808, 318);
+            this.label14.Location = new System.Drawing.Point(819, 318);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 15);
@@ -502,7 +502,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.Blue;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 22;
-            this.iconButton2.Location = new System.Drawing.Point(810, 416);
+            this.iconButton2.Location = new System.Drawing.Point(821, 416);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(89, 43);
             this.iconButton2.TabIndex = 93;
