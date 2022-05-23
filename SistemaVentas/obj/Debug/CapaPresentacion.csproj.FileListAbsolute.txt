@@ -41,3 +41,15 @@ C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVenta
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormProducto.resources
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormUsuario.resources
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormCategoria.resources
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\bin\Debug\ClosedXML.dll
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\bin\Debug\ExcelNumberFormat.dll
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\bin\Debug\System.IO.Packaging.dll
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\bin\Debug\ClosedXML.pdb
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\bin\Debug\ClosedXML.xml
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\bin\Debug\ExcelNumberFormat.xml
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\bin\Debug\System.IO.Packaging.xml
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormCliente.resources
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormProveedor.resources
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormNegocio.resources

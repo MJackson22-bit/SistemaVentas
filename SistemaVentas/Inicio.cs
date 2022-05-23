@@ -123,6 +123,9 @@ namespace SistemaVentas
             open_Form((IconMenuItem)sender, new FormReporte());
         }
 
-       
+        private void subMenuNegocio_Click(object sender, EventArgs e)
+        {
+            open_Form(menuMantenedor, new FormNegocio());
+        }
     }
 }
