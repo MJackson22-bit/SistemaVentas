@@ -59,3 +59,4 @@ C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVenta
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormVenta.resources
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormDetalleVenta.resources
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormReportesCompras.resources
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormReportesVentas.resources
