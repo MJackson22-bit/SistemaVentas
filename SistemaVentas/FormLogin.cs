@@ -27,7 +27,7 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            /*Usuario usuario = new CNUsuario().listar().Where(u => u.Documento == txtDocumento.Text && u.Clave == txtClave.Text).FirstOrDefault();
+            Usuario usuario = new CNUsuario().listar().Where(u => u.Documento == txtDocumento.Text && u.Clave == txtClave.Text).FirstOrDefault();
             if(usuario != null)
             {
                 Inicio inicio = new Inicio(usuario);
@@ -38,11 +38,7 @@ namespace CapaPresentacion
             else
             {
                 MessageBox.Show("No se encontró el usuario", "Ha ocurrido un problema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }*/
-            Inicio inicio = new Inicio();
-            inicio.Show();
-            this.Hide();
-            inicio.FormClosing += form_Closing;
+            }
         }
         private void form_Closing(object sender, FormClosingEventArgs e)
         {
