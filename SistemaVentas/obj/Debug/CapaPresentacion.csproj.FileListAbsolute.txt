@@ -53,3 +53,5 @@ C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVenta
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormCliente.resources
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormProveedor.resources
 C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormNegocio.resources
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.FormCompra.resources
+C:\Users\Jackson\Documents\Ingeniería del Software\SistemaVentas-2\SistemaVentas\obj\Debug\CapaPresentacion.Modales.MDProveedor.resources
