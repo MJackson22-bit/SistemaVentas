@@ -1,6 +1,7 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
 using CapaPresentacion;
+using CapaPresentacion.Modales;
 using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
@@ -131,6 +132,17 @@ namespace SistemaVentas
         private void iconMenuItem2_Click(object sender, EventArgs e)
         {
             open_Form(menuReportes, new FormReportesVentas());
+        }
+
+        private void menuReportes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuAcerca_Click(object sender, EventArgs e)
+        {
+            MDAcercaDe acercaDe = new MDAcercaDe();
+            acercaDe.ShowDialog();
         }
     }
 }
