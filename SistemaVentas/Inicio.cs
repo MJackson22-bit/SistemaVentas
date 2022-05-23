@@ -118,14 +118,19 @@ namespace SistemaVentas
             open_Form((IconMenuItem)sender, new FormProveedor());
         }
 
-        private void menuReportes_Click(object sender, EventArgs e)
-        {
-            open_Form((IconMenuItem)sender, new FormReporte());
-        }
-
         private void subMenuNegocio_Click(object sender, EventArgs e)
         {
             open_Form(menuMantenedor, new FormNegocio());
+        }
+
+        private void iconMenuItem1_Click(object sender, EventArgs e)
+        {
+            open_Form(menuReportes, new FormReportesCompras());
+        }
+
+        private void iconMenuItem2_Click(object sender, EventArgs e)
+        {
+            open_Form(menuReportes, new FormReportesVentas());
         }
     }
 }
