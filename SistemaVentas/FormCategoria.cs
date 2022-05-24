@@ -204,5 +204,10 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
     }
 }

@@ -33,6 +33,10 @@ namespace SistemaVentas
             userCurrent = usuario;
             InitializeComponent();
         }
+        public Inicio()
+        {
+            InitializeComponent();
+        }
 
         private void contenedor_Paint(object sender, PaintEventArgs e)
         {
@@ -41,7 +45,7 @@ namespace SistemaVentas
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            List<Permiso> listPermiso = new CNPermiso().listar(userCurrent.IdUsuario);
+            /*List<Permiso> listPermiso = new CNPermiso().listar(userCurrent.IdUsuario);
             foreach(IconMenuItem iconMenu in menu.Items)
             {
                 bool find = listPermiso.Any(m => m.NombreMenu == iconMenu.Name);
@@ -50,7 +54,7 @@ namespace SistemaVentas
                     iconMenu.Visible = false;
                 }
             }
-            lblUsuario.Text = userCurrent.NombreCompleto;
+            lblUsuario.Text = userCurrent.NombreCompleto;*/
         }
 
         private void open_Form(IconMenuItem menuItem, Form form)
