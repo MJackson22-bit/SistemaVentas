@@ -78,5 +78,28 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            {
+                int indice = e.RowIndex;
+                if (indice >= 0)
+                {
+                    txtIndice.Text = indice.ToString();
+                    txtId.Text = dgvData.Rows[indice].Cells["Id"].Value.ToString();
+                    txtDescripcion.Text = dgvData.Rows[indice].Cells["Descripcion"].Value.ToString();
+                    foreach (OpcionCombo opcion in cbEstado.Items)
+                    {
+                        if (Convert.ToInt32(opcion.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["EstadoValor"].Value))
+                        {
+                            int indiceCombo = cbEstado.Items.IndexOf(opcion);
+                            cbEstado.SelectedIndex = indiceCombo;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
