@@ -42,6 +42,18 @@ namespace CapaNegocio
         public bool Editar(Usuario usuario, out string message)
         {
             message = string.Empty;
+            if (usuario.NombreCompleto == "")
+            {
+                message += "Es necesario el nombre de usuario\n";
+            }
+            if (usuario.Documento == "")
+            {
+                message += "Es necesario el documento de usuario\n";
+            }
+            if (usuario.Clave == "")
+            {
+                message += "Es necesario la clave del usuario\n";
+            }
             if (message != string.Empty)
             {
                 return false;

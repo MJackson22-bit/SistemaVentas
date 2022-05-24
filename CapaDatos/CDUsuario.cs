@@ -125,7 +125,7 @@ namespace CapaDatos
             {
                 using (SqlConnection connection = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", connection);
+                    SqlCommand cmd = new SqlCommand("SP_ELIMINARUSUARIO", connection);
                     cmd.Parameters.AddWithValue("IdUsuario", usuario.IdUsuario);
                     cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
