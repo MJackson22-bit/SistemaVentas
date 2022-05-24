@@ -101,5 +101,29 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtId.Text) != 0)
+            {
+                if (MessageBox.Show("¿Desea eliminar la categoría?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string message = string.Empty;
+                    Categoria categoria = new Categoria()
+                    {
+                        IdCategoria = Convert.ToInt32(txtId.Text)
+                    };
+                    bool respuesta = new CNCategoria().Eliminar(categoria, out message);
+                    if (respuesta)
+                    {
+                        dgvData.Rows.RemoveAt(Convert.ToInt32(txtIndice.Text));
+                    }
+                    else
+                    {
+                        MessageBox.Show(message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+        }
     }
 }
