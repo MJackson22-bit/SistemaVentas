@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CNCategoria.cs" />
     <Compile Include="CNPermiso.cs" />
+    <Compile Include="CNProducto.cs" />
     <Compile Include="CNRol.cs" />
     <Compile Include="CNUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
