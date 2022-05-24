@@ -125,5 +125,20 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void bntBuscar_Click(object sender, EventArgs e)
+        {
+            string columnFilter = ((OpcionCombo)cbBusqueda.SelectedItem).Valor.ToString();
+            if (dgvData.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    if (row.Cells[columnFilter].Value.ToString().Trim().ToUpper().Contains(txtSearch.Text.Trim().ToUpper()))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            }
+        }
     }
 }
