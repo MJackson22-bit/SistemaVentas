@@ -61,7 +61,7 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cbBusqueda = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.txtIndice = new System.Windows.Forms.TextBox();
             this.btnLimpiarBuscar = new FontAwesome.Sharp.IconButton();
             this.bntBuscar = new FontAwesome.Sharp.IconButton();
@@ -351,10 +351,12 @@
             // label10
             // 
             this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label10.Font = new System.Drawing.Font("Cera Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(243, 10);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.label10.Size = new System.Drawing.Size(752, 56);
             this.label10.TabIndex = 20;
             this.label10.Text = "Lista de usuarios";
@@ -367,6 +369,7 @@
             this.txtId.Size = new System.Drawing.Size(29, 23);
             this.txtId.TabIndex = 21;
             this.txtId.Text = "0";
+            this.txtId.Visible = false;
             // 
             // label11
             // 
@@ -390,13 +393,13 @@
             this.cbBusqueda.Size = new System.Drawing.Size(151, 23);
             this.cbBusqueda.TabIndex = 23;
             // 
-            // textBox1
+            // txtBusqueda
             // 
-            this.textBox1.Location = new System.Drawing.Point(800, 28);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 23);
-            this.textBox1.TabIndex = 24;
+            this.txtBusqueda.Location = new System.Drawing.Point(800, 28);
+            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(106, 23);
+            this.txtBusqueda.TabIndex = 24;
             // 
             // txtIndice
             // 
@@ -405,6 +408,7 @@
             this.txtIndice.Size = new System.Drawing.Size(29, 23);
             this.txtIndice.TabIndex = 27;
             this.txtIndice.Text = "-1";
+            this.txtIndice.Visible = false;
             // 
             // btnLimpiarBuscar
             // 
@@ -422,6 +426,7 @@
             this.btnLimpiarBuscar.Size = new System.Drawing.Size(31, 23);
             this.btnLimpiarBuscar.TabIndex = 26;
             this.btnLimpiarBuscar.UseVisualStyleBackColor = false;
+            this.btnLimpiarBuscar.Click += new System.EventHandler(this.btnLimpiarBuscar_Click);
             // 
             // bntBuscar
             // 
@@ -439,6 +444,7 @@
             this.bntBuscar.Size = new System.Drawing.Size(31, 23);
             this.bntBuscar.TabIndex = 25;
             this.bntBuscar.UseVisualStyleBackColor = false;
+            this.bntBuscar.Click += new System.EventHandler(this.bntBuscar_Click);
             // 
             // btnEliminar
             // 
@@ -512,7 +518,7 @@
             this.Controls.Add(this.txtIndice);
             this.Controls.Add(this.btnLimpiarBuscar);
             this.Controls.Add(this.bntBuscar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.cbBusqueda);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtId);
@@ -574,7 +580,7 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbBusqueda;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBusqueda;
         private FontAwesome.Sharp.IconButton btnLimpiarBuscar;
         private FontAwesome.Sharp.IconButton bntBuscar;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
