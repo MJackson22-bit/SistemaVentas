@@ -159,3 +159,87 @@ begin
 		set @Mensaje = 'La categoria se encuentra relacionada a un porducto'
 	end
 end
+
+Create proc SP_REGISTRARPRODUCTO(
+@Codigo varchar(50),
+@Nombre varchar(100),
+@Descripcion varchar(100),
+@IdCategoria varchar(100),
+@Estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	set @Resultado = 0
+	if not exists(select * from PRODUCTO where Codigo= @Codigo)
+	begin
+		insert into PRODUCTO(Codigo, Nombre, Descripcion, IdCategoria, Estado) values
+		(@Codigo, @Nombre, @Descripcion, @IdCategoria, @Estado)
+		set @Resultado = SCOPE_IDENTITY()
+	end
+	else
+		set @Mensaje = 'El producto ya existe'
+end
+go
+Create proc SP_MODIFICARPRODUCTO(
+@IdProducto int,
+@Codigo varchar(50),
+@Nombre varchar(100),
+@Descripcion varchar(100),
+@IdCategoria varchar(100),
+@Estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	set @Resultado = 1
+	set @Mensaje = ''
+	if not exists(select * from PRODUCTO where Codigo= @Codigo and IdProducto = @IdProducto)
+		Update PRODUCTO set 
+		Codigo = @Codigo, 
+		Nombre = @Nombre,
+		Descripcion = @Descripcion,
+		IdCategoria = @IdCategoria, 
+		Estado = @Estado
+		WHERE IdProducto = @IdProducto
+	else
+	begin
+	set @Resultado = 0
+		set @Mensaje = 'El producto ya existe'
+	end
+end
+go 
+Create proc SP_ELIMINARPRODUCTO(
+@IdProducto int,
+@Respuesta int output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	set @Respuesta = 0
+	set @Mensaje = ''
+	declare @pasoreglas bit = 1
+	if not exists(select * from DETALLE_COMPRA dc
+	INNER JOIN PRODUCTO p ON p.IdProducto = dc.IdProducto
+	WHERE p.IdProducto = @IdProducto)
+	begin
+		set @pasoreglas = 0
+		set @Respuesta = 0
+		set @Mensaje = @Mensaje + 'No se puede eliminar poeque se encuentra relacionado con una compra\n'
+	end
+	if not exists(select * from DETALLE_VENTA dv
+	INNER JOIN PRODUCTO p ON p.IdProducto = dv.IdProducto
+	WHERE p.IdProducto = @IdProducto)
+	begin
+		set @pasoreglas = 0
+		set @Respuesta = 0
+		set @Mensaje = @Mensaje + 'No se puede eliminar poeque se encuentra relacionado con una venta\n'
+	end
+	IF(@pasoreglas = 1)
+	begin
+		delete from PRODUCTO where IdProducto = @IdProducto
+		set @Respuesta = 1
+	end
+end
