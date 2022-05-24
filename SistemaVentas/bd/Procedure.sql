@@ -246,13 +246,13 @@ end
 
 go
 
-create proc SP_REGISTRARCLIENTE(
+alter proc SP_REGISTRARCLIENTE(
 @Documento varchar(50),
 @Nombre_Completo varchar(100),
 @Correo varchar(100),
 @Telefono varchar(100),
 @Estado bit,
-@Resultado bit output,
+@Resultado int output,
 @Mensaje varchar(500) output
 )as 
 begin
@@ -264,7 +264,7 @@ begin
 		set @Resultado = SCOPE_IDENTITY()
 	end
 	else
-		set  @Mensaje = 'El cliente ya existe'
+		set  @Mensaje = 'El cliente ya existe Create'
 end
 
 go
@@ -294,7 +294,7 @@ begin
 	else
 	begin
 		set @Resultado = 0
-		set  @Mensaje = 'El cliente ya existe'
+		set  @Mensaje = 'El cliente ya existe Edit'
 	end
 end
 
