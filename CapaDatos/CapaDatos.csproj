@@ -46,6 +46,7 @@
     <Compile Include="CDCliente.cs" />
     <Compile Include="CDPermiso.cs" />
     <Compile Include="CDProducto.cs" />
+    <Compile Include="CDProveedor.cs" />
     <Compile Include="CDUsuario.cs" />
     <Compile Include="CDRol.cs" />
     <Compile Include="Conexion.cs" />
