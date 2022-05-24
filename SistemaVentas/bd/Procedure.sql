@@ -92,10 +92,10 @@ begin
 end
 
 --Procedimiento para guardar categoría
-Alter PROC SP_REGISTRARCATEGORIA(
+create PROC SP_REGISTRARCATEGORIA(
 @Descripcion varchar(50),
 @Estado bit,
-@Resultado int output,
+@Resultado bit output,
 @Mensaje varchar(500) output
 )
 as
@@ -117,20 +117,17 @@ CREATE PROC SP_EDITARCATEGORIA(
 @IdCategoria int,
 @Descripcion varchar(50),
 @Estado bit,
-@Resultado int output,
+@Resultado bit output,
 @Mensaje varchar(500) output
 )
 as
 begin
 	SET @Resultado = 1
-	IF NOT EXISTS (SELECT * FROM CATEGORIA WHERE Descripcion = @Descripcion and IdCategoria != @Descripcion)
-	begin
+	IF NOT EXISTS (SELECT * FROM CATEGORIA WHERE Descripcion = @Descripcion and IdCategoria != @IdCategoria)
 		update CATEGORIA set
 		Descripcion = @Descripcion,
 		Estado = @Estado
 		where IdCategoria = @IdCategoria
-		set @Resultado = SCOPE_IDENTITY()
-	end
 	ELSE
 	begin
 		set @Resultado = 0

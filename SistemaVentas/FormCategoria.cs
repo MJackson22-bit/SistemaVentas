@@ -200,7 +200,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show(message);
+                    MessageBox.Show(message + "Edit");
                 }
             }
         }

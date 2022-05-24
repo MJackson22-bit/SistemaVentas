@@ -55,6 +55,7 @@ namespace CapaDatos
                 {
                     SqlCommand cmd = new SqlCommand("SP_REGISTRARCATEGORIA", connection);
                     cmd.Parameters.AddWithValue("Descripcion", categoria.Descripcion);
+                    cmd.Parameters.AddWithValue("Estado", categoria.Estado);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -83,12 +84,13 @@ namespace CapaDatos
                     SqlCommand cmd = new SqlCommand("SP_EDITARCATEGORIA", connection);
                     cmd.Parameters.AddWithValue("IdCategoria", categoria.IdCategoria);
                     cmd.Parameters.AddWithValue("Descripcion", categoria.Descripcion);
+                    cmd.Parameters.AddWithValue("Estado", categoria.Estado);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     cmd.ExecuteNonQuery();
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
                     message = cmd.Parameters["Mensaje"].Value.ToString();
                 }
             }
@@ -111,12 +113,12 @@ namespace CapaDatos
                 {
                     SqlCommand cmd = new SqlCommand("SP_ELIMINARCATEGORIA", connection);
                     cmd.Parameters.AddWithValue("IdCategoria", categoria.IdCategoria);
-                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     cmd.ExecuteNonQuery();
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
                     message = cmd.Parameters["Mensaje"].Value.ToString();
                 }
             }
