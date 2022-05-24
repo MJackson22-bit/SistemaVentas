@@ -13,6 +13,7 @@ namespace CapaNegocio
         private CDProducto objectProducto = new CDProducto();
         public List<Producto> listar()
         {
+            Console.WriteLine(objectProducto.ToString());
             return objectProducto.listar();
         }
         public int Registar(Producto producto, out string message)

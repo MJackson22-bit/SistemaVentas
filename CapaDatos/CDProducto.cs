@@ -19,7 +19,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdProducto, Codigo, Nombre, Descripcion[DescripcionCategoria], IdCategoria, Stock, Precio_Compra, Precio_Venta from PRODUCTO p");
+                    query.AppendLine("select IdProducto, Codigo, Nombre, p.Descripcion, c.IdCategoria, c.Descripcion[DescripcionCategoria], Stock, Precio_Compra, Precio_Venta, p.Estado from PRODUCTO p");
                     query.AppendLine("INNER JOIN CATEGORIA c ON c.IdCategoria = p.IdCategoria");
                     SqlCommand cmd = new SqlCommand(query.ToString(), connection);
                     cmd.CommandType = CommandType.Text;
@@ -39,9 +39,9 @@ namespace CapaDatos
                                     IdCategoria = Convert.ToInt32(dr["IdCategoria"]),
                                     Descripcion = dr["DescripcionCategoria"].ToString()
                                 },
-                                Stock = Convert.ToInt32(dr["Stock"]),
-                                PrecioCompra = Convert.ToInt32(dr["PrecioCompra"].ToString()),
-                                PrecioVenta = Convert.ToInt32(dr["PrecioVenta"].ToString()),
+                                Stock = Convert.ToInt32(dr["Stock"].ToString()),
+                                PrecioCompra = Convert.ToDecimal(dr["Precio_Compra"].ToString()),
+                                PrecioVenta = (int)Convert.ToDecimal(dr["Precio_Venta"].ToString()),
                                 Estado = Convert.ToBoolean(dr["Estado"]),
                             });
                         }
@@ -49,7 +49,7 @@ namespace CapaDatos
                 }
                 catch (Exception e)
                 {
-                    lista = null;
+                    lista = new List<Producto>();
                 }
             }
             return lista;

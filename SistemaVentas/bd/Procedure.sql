@@ -196,7 +196,7 @@ as
 begin
 	set @Resultado = 1
 	set @Mensaje = ''
-	if not exists(select * from PRODUCTO where Codigo= @Codigo and IdProducto = @IdProducto)
+	if not exists(select * from PRODUCTO where Codigo= @Codigo and IdProducto != @IdProducto)
 		Update PRODUCTO set 
 		Codigo = @Codigo, 
 		Nombre = @Nombre,
@@ -211,9 +211,9 @@ begin
 	end
 end
 go 
-Create proc SP_ELIMINARPRODUCTO(
+alter proc SP_ELIMINARPRODUCTO(
 @IdProducto int,
-@Respuesta int output,
+@Respuesta bit output,
 @Mensaje varchar(500) output
 )
 as
@@ -221,7 +221,7 @@ begin
 	set @Respuesta = 0
 	set @Mensaje = ''
 	declare @pasoreglas bit = 1
-	if not exists(select * from DETALLE_COMPRA dc
+	if exists(select * from DETALLE_COMPRA dc
 	INNER JOIN PRODUCTO p ON p.IdProducto = dc.IdProducto
 	WHERE p.IdProducto = @IdProducto)
 	begin
@@ -229,7 +229,7 @@ begin
 		set @Respuesta = 0
 		set @Mensaje = @Mensaje + 'No se puede eliminar poeque se encuentra relacionado con una compra\n'
 	end
-	if not exists(select * from DETALLE_VENTA dv
+	if exists(select * from DETALLE_VENTA dv
 	INNER JOIN PRODUCTO p ON p.IdProducto = dv.IdProducto
 	WHERE p.IdProducto = @IdProducto)
 	begin
