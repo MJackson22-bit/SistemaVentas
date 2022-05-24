@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CNCategoria.cs" />
     <Compile Include="CNPermiso.cs" />
     <Compile Include="CNRol.cs" />
     <Compile Include="CNUsuario.cs" />
