@@ -52,8 +52,8 @@ namespace CapaPresentacion
             cbBusqueda.SelectedIndex = 0;
 
             //Mostrar todos los usuarios
-            List<Proveedor> listaUsuario = new CNProveedor().listar();
-            foreach (Proveedor item in listaUsuario)
+            List<Proveedor> listaProveedor = new CNProveedor().listar();
+            foreach (Proveedor item in listaProveedor)
             {
                 dgvData.Rows.Add(new object[]
                 {

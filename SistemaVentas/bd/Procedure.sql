@@ -298,3 +298,75 @@ begin
 	end
 end
 
+create proc SP_REGISTRARPROVEEDOR(
+@Documento varchar(50),
+@Razon_Social varchar(100),
+@Correo varchar(100),
+@Telefono varchar(100),
+@Estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+) as
+begin
+	set @Resultado = 0
+	declare @IDPERSONA int
+	if not exists(select * from PROVEEDOR where Documento = @Documento)
+	begin
+		insert into PROVEEDOR(Documento, Razon_Social, Correo, Telefono, Estado) values
+		(@Documento, @Razon_Social, @Correo, @Telefono, @Estado)
+		set @Resultado = SCOPE_IDENTITY()
+	end
+	else
+		set @Mensaje = 'El proveedor ya existe'
+end
+
+go
+
+create proc SP_MODIFICARPROVEEDOR(
+@IdProveedor int,
+@Documento varchar(50),
+@Razon_Social varchar(100),
+@Correo varchar(100),
+@Telefono varchar(100),
+@Estado bit,
+@Resultado bit output,
+@Mensaje varchar(500) output
+) as
+begin
+	set @Resultado = 1
+	declare @IDPERSONA int
+	if not exists(select * from PROVEEDOR where Documento = @Documento and IdProveedor != @IdProveedor)
+	begin
+		update PROVEEDOR set Documento = @Documento, 
+		Razon_Social = @Razon_Social, 
+		Correo = @Correo, 
+		Telefono = @Telefono, 
+		Estado = @Estado
+	end
+	else
+	begin
+		set @Resultado = 0
+		set @Mensaje = 'El proveedor ya existe'
+	end
+end
+go
+
+create proc SP_ELIMINARPROVEEDOR(
+@IdProveedor int,
+@Resultado int output,
+@Mensaje varchar(500) output
+) as
+begin
+	set @Resultado = 1
+	declare @IDPERSONA int
+	if not exists(select * from PROVEEDOR p inner join COMPRA c on p.IdProveedor = c.IdProveedor where p.IdProveedor = @IdProveedor)
+	begin
+		delete top(1) from PROVEEDOR where IdProveedor = @IdProveedor
+	end
+	else
+	begin
+		set @Resultado = 0
+		set @Mensaje = 'El proveedor se encuentra relacionado a una compra'
+	end
+end
+go

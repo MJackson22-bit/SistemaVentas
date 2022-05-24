@@ -137,3 +137,11 @@ Fecha_Registro datetime default getdate(),
 );
 
 GO
+
+create table NEGOCIO(
+IdNegocio int primary key,
+Nombre varchar(60),
+RUC varchar(60),
+Direccion varchar(60),
+Logo varbinary(max) NULL
+)
