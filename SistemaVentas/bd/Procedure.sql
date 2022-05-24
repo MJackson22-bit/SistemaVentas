@@ -109,6 +109,8 @@ begin
 		set @Mensaje = 'La descripcion de esta categoría ya existe'
 end
 
+go
+
 --Procedimiento para editar categoría
 CREATE PROC SP_EDITARCATEGORIA(
 @IdCategoria int,
@@ -130,5 +132,30 @@ begin
 	begin
 		set @Resultado = 0
 		set @Mensaje = 'La descripcion de esta categoría ya existe'
+	end
+end
+
+go
+
+
+--Procedimiento para Eliminar categoría
+CREATE PROC SP_ELIMINARCATEGORIA(
+@IdCategoria int,
+@Resultado int output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	SET @Resultado = 1
+	IF NOT EXISTS (select * from CATEGORIA c
+	inner join PRODUCTO p on p.IdCategoria = c.IdCategoria
+	where c.IdCategoria = @IdCategoria)
+	begin
+		delete top(1) from CATEGORIA where IdCategoria = @IdCategoria
+	end
+	ELSE
+	begin
+		set @Resultado = 0
+		set @Mensaje = 'La categoria se encuentra relacionada a un porducto'
 	end
 end
