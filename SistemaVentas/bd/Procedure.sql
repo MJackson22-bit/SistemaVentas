@@ -90,3 +90,45 @@ begin
 	END
 
 end
+
+--Procedimiento para guardar categoría
+CREATE PROC SP_REGISTRARCATEGORIA(
+@Descripcion varchar(50),
+@Resultado int output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	SET @Resultado = 0
+	IF NOT EXISTS (SELECT * FROM CATEGORIA WHERE Descripcion = @Descripcion)
+	begin
+		insert into CATEGORIA(Descripcion) values (@Descripcion)
+		set @Resultado = SCOPE_IDENTITY()
+	end
+	ELSE
+		set @Mensaje = 'La descripcion de esta categoría ya existe'
+end
+
+--Procedimiento para editar categoría
+CREATE PROC SP_EDITARCATEGORIA(
+@IdCategoria int,
+@Descripcion varchar(50),
+@Resultado int output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	SET @Resultado = 1
+	IF NOT EXISTS (SELECT * FROM CATEGORIA WHERE Descripcion = @Descripcion and IdCategoria != @Descripcion)
+	begin
+		update CATEGORIA set
+		Descripcion = @Descripcion
+		where IdCategoria = @IdCategoria
+		set @Resultado = SCOPE_IDENTITY()
+	end
+	ELSE
+	begin
+		set @Resultado = 0
+		set @Mensaje = 'La descripcion de esta categoría ya existe'
+	end
+end
