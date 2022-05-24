@@ -99,7 +99,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Clave", usuario.Clave);
                     cmd.Parameters.AddWithValue("IdRol", usuario.ORol.IdRol);
                     cmd.Parameters.AddWithValue("Estado", usuario.Estado);
-                    cmd.Parameters.Add("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     connection.Open();
