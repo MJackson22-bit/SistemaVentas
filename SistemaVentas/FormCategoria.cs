@@ -50,9 +50,9 @@ namespace CapaPresentacion
             cbBusqueda.ValueMember = "Valor";
             cbBusqueda.SelectedIndex = 0;
 
-            //Mostrar todos los usuarios
-            List<Categoria> listaUsuario = new CNCategoria().listar();
-            foreach (Categoria item in listaUsuario)
+            //Mostrar todos los categorias
+            List<Categoria> listaCategoria = new CNCategoria().listar();
+            foreach (Categoria item in listaCategoria)
             {
                 dgvData.Rows.Add(new object[]
                 {
@@ -147,6 +147,61 @@ namespace CapaPresentacion
             foreach (DataGridViewRow row in dgvData.Rows)
             {
                 row.Visible = true;
+            }
+        }
+
+        private void Limpiar()
+        {
+            txtIndice.Text = "-1";
+            txtId.Text = "0";
+            cbEstado.SelectedIndex = 0;
+            txtDescripcion.Text = "";
+            txtDescripcion.Select();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string message = string.Empty;
+            Categoria categoria = new Categoria()
+            {
+                IdCategoria = Convert.ToInt32(txtId.Text),
+                Descripcion = txtDescripcion.Text,
+                Estado = Convert.ToInt32(((OpcionCombo)cbEstado.SelectedItem).Valor) == 1 ? true : false
+            };
+            if (categoria.IdCategoria == 0)
+            {
+                int idGenerado = new CNCategoria().Registar(categoria, out message);
+                if (idGenerado != 0)
+                {
+                    dgvData.Rows.Add(new object[]
+                    {
+                    "", idGenerado, txtDescripcion.Text, 
+                    ((OpcionCombo) cbEstado.SelectedItem).Valor.ToString(),
+                    ((OpcionCombo) cbEstado.SelectedItem).Texto.ToString()
+                    });
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(message);
+                }
+            }
+            else
+            {
+                bool resultado = new CNCategoria().Editar(categoria, out message);
+                if (resultado)
+                {
+                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
+                    row.Cells["Id"].Value = txtId.Text;
+                    row.Cells["Descripcion"].Value = txtDescripcion.Text;
+                    row.Cells["EstadoValor"].Value = ((OpcionCombo)cbEstado.SelectedItem).Valor.ToString();
+                    row.Cells["Estado"].Value = ((OpcionCombo)cbEstado.SelectedItem).Texto.ToString();
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(message);
+                }
             }
         }
     }

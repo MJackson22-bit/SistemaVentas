@@ -54,13 +54,13 @@ namespace CapaDatos
                 using (SqlConnection connection = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand cmd = new SqlCommand("SP_REGISTRARCATEGORIA", connection);
-                    cmd.Parameters.AddWithValue("Documento", categoria.Descripcion);
+                    cmd.Parameters.AddWithValue("Descripcion", categoria.Descripcion);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     cmd.ExecuteNonQuery();
-                    idiCategoriaGenerado = Convert.ToInt32(cmd.Parameters["IdCategoriaResultado"].Value);
+                    idiCategoriaGenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
                     message = cmd.Parameters["Mensaje"].Value.ToString();
                 }
             }
