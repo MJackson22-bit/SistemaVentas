@@ -243,3 +243,58 @@ begin
 		set @Respuesta = 1
 	end
 end
+
+go
+
+create proc SP_REGISTRARCLIENTE(
+@Documento varchar(50),
+@Nombre_Completo varchar(100),
+@Correo varchar(100),
+@Telefono varchar(100),
+@Estado bit,
+@Resultado bit output,
+@Mensaje varchar(500) output
+)as 
+begin
+	set @Resultado = 0
+	declare @IDPERSONA int
+	if not exists(select * from CLIENTE where Documento = @Documento)
+	begin
+		insert into CLIENTE (Documento, Nombre_Completo, Correo, Telefono, Estado) values (@Documento, @Nombre_Completo, @Correo, @Telefono, @Estado)
+		set @Resultado = SCOPE_IDENTITY()
+	end
+	else
+		set  @Mensaje = 'El cliente ya existe'
+end
+
+go
+
+create proc SP_MODIFICARCLIENTE(
+@IdCliente int,
+@Documento varchar(50),
+@Nombre_Completo varchar(100),
+@Correo varchar(100),
+@Telefono varchar(100),
+@Estado bit,
+@Resultado bit output,
+@Mensaje varchar(500) output
+)as 
+begin
+	set @Resultado = 1
+	declare @IDPERSONA int
+	if not exists(select * from CLIENTE where Documento = @Documento and IdCliente != @IdCliente)
+	begin
+		update CLIENTE set 
+		Documento = @Documento, 
+		Nombre_Completo = @Nombre_Completo, 
+		Correo = @Correo, Telefono = @Telefono, 
+		Estado = @Estado
+		where IdCliente = @IdCliente
+	end
+	else
+	begin
+		set @Resultado = 0
+		set  @Mensaje = 'El cliente ya existe'
+	end
+end
+
