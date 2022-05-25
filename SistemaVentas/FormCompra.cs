@@ -134,6 +134,58 @@ namespace CapaPresentacion
                     txtCatidad.Value.ToString(),
                     (txtCatidad.Value * precioCompra).ToString("0.00")
                 });
+                calcularTotal();
+                limpiarProducto();
+                txtCodigoProducto.Select();
+            }
+        }
+        public void limpiarProducto()
+        {
+            txtIdProducto.Text = "0";
+            txtCodigoProducto.Text = "";
+            txtCodigoProducto.BackColor = Color.White;
+            txtProducto.Text = "";
+            txtPrecioCompra.Text = "";
+            txtPrecrioVenta.Text = "";
+            txtCatidad.Value = 1;
+        }
+        private void calcularTotal()
+        {
+            decimal total = 0;
+            if(dgvData.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvData.Rows)
+                    total += Convert.ToDecimal(row.Cells["SubTotal"].Value.ToString());
+            }
+            txtTotalPagar.Text = total.ToString("0.00");
+        }
+
+        private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 6)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.Check_Circle_24px.Width;
+                var h = Properties.Resources.Check_Circle_24px.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+                e.Graphics.DrawImage(Properties.Resources.Remove_24px, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvData.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                int indice = e.RowIndex;
+                if (indice >= 0)
+                {
+                    dgvData.Rows.RemoveAt(indice);
+                    calcularTotal();
+                }
             }
         }
     }
