@@ -27,6 +27,16 @@ namespace CapaPresentacion
             using(var modal = new MDProveedor())
             {
                 var result = modal.ShowDialog();
+                if(result == DialogResult.OK)
+                {
+                    txtIdProveedor.Text = modal._Proveedor.IdProveedor.ToString();
+                    txtDocProveedor.Text = modal._Proveedor.Documento;
+                    txtNombreProveedor.Text = modal._Proveedor.RazonSocial;
+                }
+                else
+                {
+                    txtDocProveedor.Select();
+                }
             }
         }
 

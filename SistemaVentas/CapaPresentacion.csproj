@@ -181,6 +181,12 @@
     <Compile Include="Modales\MDAcercaDe.Designer.cs">
       <DependentUpon>MDAcercaDe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\MDProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\MDProducto.Designer.cs">
+      <DependentUpon>MDProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modales\MDProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\MDAcercaDe.resx">
       <DependentUpon>MDAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\MDProducto.resx">
+      <DependentUpon>MDProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\MDProveedor.resx">
       <DependentUpon>MDProveedor.cs</DependentUpon>
