@@ -112,7 +112,7 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvData.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Blue;
+            this.dgvData.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.RoyalBlue;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(511, 236);
@@ -188,6 +188,7 @@
             this.Name = "MDProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MDProveedor";
+            this.Load += new System.EventHandler(this.MDProveedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -29,8 +29,6 @@ namespace SistemaVentas
             };
             else
                 userCurrent = usuario;
-   
-            userCurrent = usuario;
             InitializeComponent();
         }
         public Inicio()
@@ -110,7 +108,7 @@ namespace SistemaVentas
 
         private void subMenuRegistarCompra_Click(object sender, EventArgs e)
         {
-            open_Form(menuCompras, new FormCompra());
+            open_Form(menuCompras, new FormCompra(userCurrent));
         }
 
         private void menuClientes_Click(object sender, EventArgs e)
