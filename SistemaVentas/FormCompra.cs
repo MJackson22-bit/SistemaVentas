@@ -92,5 +92,49 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            decimal precioCompra = 0;
+            decimal precioVenta = 0;
+            bool productoExiste = false;
+            if(int.Parse(txtIdProducto.Text) == 0)
+            {
+                MessageBox.Show("Debe seleccionar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(!decimal.TryParse(txtPrecioCompra.Text, out precioCompra))
+            {
+                MessageBox.Show("Precio Compra - Formato moneda incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPrecioCompra.Select();
+                return;
+            }
+            if (!decimal.TryParse(txtPrecrioVenta.Text, out precioVenta))
+            {
+                MessageBox.Show("Precio Venta - Formato moneda incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPrecrioVenta.Select();
+                return;
+            }
+            foreach(DataGridViewRow row in dgvData.Rows)
+            {
+                if(row.Cells["IdProducto"].Value.ToString() == txtIdProducto.Text)
+                {
+                    productoExiste = true;
+                    break;
+                }
+            }
+            if (!productoExiste)
+            {
+                dgvData.Rows.Add(new object[]
+                {
+                    txtIdProducto.Text,
+                    txtProducto.Text,
+                    precioCompra.ToString("0.00"),
+                    precioVenta.ToString("0.00"),
+                    txtCatidad.Value.ToString(),
+                    (txtCatidad.Value * precioCompra).ToString("0.00")
+                });
+            }
+        }
     }
 }
