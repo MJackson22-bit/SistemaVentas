@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnLimpiarBuscar = new FontAwesome.Sharp.IconButton();
-            this.bntBuscar = new FontAwesome.Sharp.IconButton();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSeacrh = new System.Windows.Forms.TextBox();
             this.cbBusqueda = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -44,42 +42,10 @@
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLimpiarBuscar = new FontAwesome.Sharp.IconButton();
+            this.bntBuscar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnLimpiarBuscar
-            // 
-            this.btnLimpiarBuscar.BackColor = System.Drawing.Color.White;
-            this.btnLimpiarBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiarBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnLimpiarBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiarBuscar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.btnLimpiarBuscar.IconColor = System.Drawing.Color.Black;
-            this.btnLimpiarBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLimpiarBuscar.IconSize = 16;
-            this.btnLimpiarBuscar.Location = new System.Drawing.Point(473, 49);
-            this.btnLimpiarBuscar.Name = "btnLimpiarBuscar";
-            this.btnLimpiarBuscar.Size = new System.Drawing.Size(31, 23);
-            this.btnLimpiarBuscar.TabIndex = 61;
-            this.btnLimpiarBuscar.UseVisualStyleBackColor = false;
-            // 
-            // bntBuscar
-            // 
-            this.bntBuscar.BackColor = System.Drawing.Color.White;
-            this.bntBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bntBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bntBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntBuscar.ForeColor = System.Drawing.Color.Black;
-            this.bntBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.bntBuscar.IconColor = System.Drawing.Color.Black;
-            this.bntBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.bntBuscar.IconSize = 16;
-            this.bntBuscar.Location = new System.Drawing.Point(436, 49);
-            this.bntBuscar.Name = "bntBuscar";
-            this.bntBuscar.Size = new System.Drawing.Size(31, 23);
-            this.bntBuscar.TabIndex = 60;
-            this.bntBuscar.UseVisualStyleBackColor = false;
             // 
             // txtSeacrh
             // 
@@ -139,23 +105,24 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cera Pro", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cera Pro", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(498, 225);
             this.dgvData.TabIndex = 55;
+            this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
             // 
             // Id
             // 
@@ -204,6 +171,42 @@
             this.PrecioVenta.Name = "PrecioVenta";
             this.PrecioVenta.ReadOnly = true;
             this.PrecioVenta.Visible = false;
+            // 
+            // btnLimpiarBuscar
+            // 
+            this.btnLimpiarBuscar.BackColor = System.Drawing.Color.White;
+            this.btnLimpiarBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarBuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnLimpiarBuscar.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarBuscar.IconSize = 16;
+            this.btnLimpiarBuscar.Location = new System.Drawing.Point(473, 49);
+            this.btnLimpiarBuscar.Name = "btnLimpiarBuscar";
+            this.btnLimpiarBuscar.Size = new System.Drawing.Size(31, 23);
+            this.btnLimpiarBuscar.TabIndex = 61;
+            this.btnLimpiarBuscar.UseVisualStyleBackColor = false;
+            this.btnLimpiarBuscar.Click += new System.EventHandler(this.btnLimpiarBuscar_Click);
+            // 
+            // bntBuscar
+            // 
+            this.bntBuscar.BackColor = System.Drawing.Color.White;
+            this.bntBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bntBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntBuscar.ForeColor = System.Drawing.Color.Black;
+            this.bntBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.bntBuscar.IconColor = System.Drawing.Color.Black;
+            this.bntBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bntBuscar.IconSize = 16;
+            this.bntBuscar.Location = new System.Drawing.Point(436, 49);
+            this.bntBuscar.Name = "bntBuscar";
+            this.bntBuscar.Size = new System.Drawing.Size(31, 23);
+            this.bntBuscar.TabIndex = 60;
+            this.bntBuscar.UseVisualStyleBackColor = false;
+            this.bntBuscar.Click += new System.EventHandler(this.bntBuscar_Click);
             // 
             // MDProducto
             // 

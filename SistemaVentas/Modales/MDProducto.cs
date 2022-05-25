@@ -54,5 +54,49 @@ namespace CapaPresentacion.Modales
                 });
             }
         }
+
+        private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int iRow = e.RowIndex;
+            int iColumn = e.ColumnIndex;
+            if (iRow >= 0 && iColumn > 0)
+            {
+                _Producto = new Producto()
+                {
+                    IdProducto = Convert.ToInt32(dgvData.Rows[iRow].Cells["Id"].Value.ToString()),
+                    Codigo = dgvData.Rows[iRow].Cells["Codigo"].Value.ToString(),
+                    Nombre = dgvData.Rows[iRow].Cells["Nombre"].Value.ToString(),
+                    Stock = Convert.ToInt32(dgvData.Rows[iRow].Cells["Stock"].Value.ToString()),
+                    PrecioCompra = Convert.ToInt32(dgvData.Rows[iRow].Cells["PrecioCompra"].Value.ToString()),
+                    PrecioVenta = Convert.ToInt32(dgvData.Rows[iRow].Cells["PrecioVenta"].Value.ToString()),
+                };
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void bntBuscar_Click(object sender, EventArgs e)
+        {
+            string columnFilter = ((OpcionCombo)cbBusqueda.SelectedItem).Valor.ToString();
+            if (dgvData.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    if (row.Cells[columnFilter].Value.ToString().Trim().ToUpper().Contains(txtSeacrh.Text.Trim().ToUpper()))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            }
+        }
+
+        private void btnLimpiarBuscar_Click(object sender, EventArgs e)
+        {
+            txtSeacrh.Text = "";
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                row.Visible = true;
+            }
+        }
     }
 }
