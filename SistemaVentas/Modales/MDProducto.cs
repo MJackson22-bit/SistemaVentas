@@ -67,8 +67,8 @@ namespace CapaPresentacion.Modales
                     Codigo = dgvData.Rows[iRow].Cells["Codigo"].Value.ToString(),
                     Nombre = dgvData.Rows[iRow].Cells["Nombre"].Value.ToString(),
                     Stock = Convert.ToInt32(dgvData.Rows[iRow].Cells["Stock"].Value.ToString()),
-                    PrecioCompra = Convert.ToInt32(dgvData.Rows[iRow].Cells["PrecioCompra"].Value.ToString()),
-                    PrecioVenta = Convert.ToInt32(dgvData.Rows[iRow].Cells["PrecioVenta"].Value.ToString()),
+                    PrecioCompra = Convert.ToDecimal(dgvData.Rows[iRow].Cells["PrecioCompra"].Value.ToString()),
+                    PrecioVenta = Convert.ToDecimal(dgvData.Rows[iRow].Cells["PrecioVenta"].Value.ToString()),
                 };
                 this.DialogResult = DialogResult.OK;
                 this.Close();

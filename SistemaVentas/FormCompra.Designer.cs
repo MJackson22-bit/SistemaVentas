@@ -39,7 +39,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtIdProveedor = new System.Windows.Forms.TextBox();
-            this.bntBuscarProveedor = new FontAwesome.Sharp.IconButton();
             this.txtNombreProveedor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDocProveedor = new System.Windows.Forms.TextBox();
@@ -52,7 +51,6 @@
             this.txtPrecioCompra = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtProducto = new System.Windows.Forms.TextBox();
-            this.btnBuscarProducto = new FontAwesome.Sharp.IconButton();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
@@ -69,6 +67,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btnRegistrar = new FontAwesome.Sharp.IconButton();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscarProducto = new FontAwesome.Sharp.IconButton();
+            this.bntBuscarProveedor = new FontAwesome.Sharp.IconButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -181,24 +181,6 @@
             this.txtIdProveedor.TabIndex = 77;
             this.txtIdProveedor.Text = "-1";
             this.txtIdProveedor.Visible = false;
-            // 
-            // bntBuscarProveedor
-            // 
-            this.bntBuscarProveedor.BackColor = System.Drawing.Color.White;
-            this.bntBuscarProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bntBuscarProveedor.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bntBuscarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntBuscarProveedor.ForeColor = System.Drawing.Color.Black;
-            this.bntBuscarProveedor.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.bntBuscarProveedor.IconColor = System.Drawing.Color.Black;
-            this.bntBuscarProveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.bntBuscarProveedor.IconSize = 16;
-            this.bntBuscarProveedor.Location = new System.Drawing.Point(160, 37);
-            this.bntBuscarProveedor.Name = "bntBuscarProveedor";
-            this.bntBuscarProveedor.Size = new System.Drawing.Size(31, 23);
-            this.bntBuscarProveedor.TabIndex = 77;
-            this.bntBuscarProveedor.UseVisualStyleBackColor = false;
-            this.bntBuscarProveedor.Click += new System.EventHandler(this.bntBuscar_Click);
             // 
             // txtNombreProveedor
             // 
@@ -334,23 +316,6 @@
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(168, 23);
             this.txtProducto.TabIndex = 78;
-            // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.BackColor = System.Drawing.Color.White;
-            this.btnBuscarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarProducto.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarProducto.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscarProducto.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnBuscarProducto.IconColor = System.Drawing.Color.Black;
-            this.btnBuscarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBuscarProducto.IconSize = 16;
-            this.btnBuscarProducto.Location = new System.Drawing.Point(179, 44);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(31, 23);
-            this.btnBuscarProducto.TabIndex = 78;
-            this.btnBuscarProducto.UseVisualStyleBackColor = false;
             // 
             // txtIdProducto
             // 
@@ -522,6 +487,42 @@
             this.button1.Text = "Agregar";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.BackColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarProducto.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProducto.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarProducto.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnBuscarProducto.IconColor = System.Drawing.Color.Black;
+            this.btnBuscarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarProducto.IconSize = 16;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(179, 44);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(31, 23);
+            this.btnBuscarProducto.TabIndex = 78;
+            this.btnBuscarProducto.UseVisualStyleBackColor = false;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
+            // 
+            // bntBuscarProveedor
+            // 
+            this.bntBuscarProveedor.BackColor = System.Drawing.Color.White;
+            this.bntBuscarProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntBuscarProveedor.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bntBuscarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntBuscarProveedor.ForeColor = System.Drawing.Color.Black;
+            this.bntBuscarProveedor.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.bntBuscarProveedor.IconColor = System.Drawing.Color.Black;
+            this.bntBuscarProveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bntBuscarProveedor.IconSize = 16;
+            this.bntBuscarProveedor.Location = new System.Drawing.Point(160, 37);
+            this.bntBuscarProveedor.Name = "bntBuscarProveedor";
+            this.bntBuscarProveedor.Size = new System.Drawing.Size(31, 23);
+            this.bntBuscarProveedor.TabIndex = 77;
+            this.bntBuscarProveedor.UseVisualStyleBackColor = false;
+            this.bntBuscarProveedor.Click += new System.EventHandler(this.bntBuscar_Click);
             // 
             // FormCompra
             // 

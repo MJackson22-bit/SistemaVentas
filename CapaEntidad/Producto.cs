@@ -15,7 +15,7 @@ namespace CapaEntidad
         public Categoria OCategoria { get; set; }
         public int Stock { get; set; }
         public decimal PrecioCompra{ get; set; }
-        public int PrecioVenta { get; set; }
+        public decimal PrecioVenta { get; set; }
         public bool Estado { get; set; }
         public string FechaRegistro { get; set; }
     }

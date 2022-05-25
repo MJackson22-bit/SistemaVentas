@@ -51,5 +51,24 @@ namespace CapaPresentacion
             txtIdProducto.Text = "0";
             txtIdProveedor.Text = "0";
         }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            using (var modal = new MDProducto())
+            {
+                var result = modal.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    txtIdProducto.Text = modal._Producto.IdProducto.ToString();
+                    txtCodigoProducto.Text = modal._Producto.Codigo;
+                    txtProducto.Text = modal._Producto.Nombre;
+                    txtPrecioCompra.Select();
+                }
+                else
+                {
+                    txtCodigoProducto.Select();
+                }
+            }
+        }
     }
 }
