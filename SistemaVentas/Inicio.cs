@@ -89,7 +89,7 @@ namespace SistemaVentas
 
         private void subMenuRegistarVenta_Click(object sender, EventArgs e)
         {
-            open_Form(menuVentas, new FormVenta());
+            open_Form(menuVentas, new FormVenta(userCurrent));
         }
 
         private void subMenuDetalleVenta_Click(object sender, EventArgs e)

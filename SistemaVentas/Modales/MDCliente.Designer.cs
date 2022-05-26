@@ -58,6 +58,7 @@
             this.btnLimpiarBuscar.Size = new System.Drawing.Size(31, 23);
             this.btnLimpiarBuscar.TabIndex = 61;
             this.btnLimpiarBuscar.UseVisualStyleBackColor = false;
+            this.btnLimpiarBuscar.Click += new System.EventHandler(this.btnLimpiarBuscar_Click);
             // 
             // bntBuscar
             // 
@@ -75,6 +76,7 @@
             this.bntBuscar.Size = new System.Drawing.Size(31, 23);
             this.bntBuscar.TabIndex = 60;
             this.bntBuscar.UseVisualStyleBackColor = false;
+            this.bntBuscar.Click += new System.EventHandler(this.bntBuscar_Click);
             // 
             // txtBuscar
             // 
@@ -144,9 +146,12 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvData.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             this.dgvData.RowTemplate.Height = 28;
+            this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(484, 213);
             this.dgvData.TabIndex = 55;
+            this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
             // 
             // Documento
             // 
@@ -175,6 +180,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dgvData);
             this.Name = "MDCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MDCliente";
             this.Load += new System.EventHandler(this.MDCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();

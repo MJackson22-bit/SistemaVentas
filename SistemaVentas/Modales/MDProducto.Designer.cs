@@ -88,6 +88,7 @@
             this.label10.Size = new System.Drawing.Size(498, 85);
             this.label10.TabIndex = 56;
             this.label10.Text = "Lista de productos";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // dgvData
             // 
