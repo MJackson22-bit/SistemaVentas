@@ -29,5 +29,15 @@ namespace CapaNegocio
         {
             return objectVenta.Regsitrar(venta, detalleVenta, out message);
         }
+        public Venta GetVenta(string numero)
+        {
+            Venta venta = objectVenta.GetVenta(numero);
+            if (venta.IdVenta!= 0)
+            {
+                List<DetalleVenta> lista = objectVenta.GetDetalleVentas(venta.IdVenta);
+                venta.ListDetalleVenta= lista;
+            }
+            return venta;
+        }
     }
 }

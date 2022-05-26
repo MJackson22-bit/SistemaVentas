@@ -113,5 +113,83 @@ namespace CapaDatos
             }
             return respuesta;
         }
+        public Venta GetVenta(string numero)
+        {
+            Venta venta = new Venta();
+            using (SqlConnection connection = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select v.IdVenta, u.Nombre_Completo, v.Documento_Cliente, v.Nombre_Cliente,");
+                    query.AppendLine("v.Tipo_Documento, v.Numero_Documento, v.Monto_Pago, v.Monto_Cambio, v.Monto_Total,");
+                    query.AppendLine("convert(char(10), v.Fecha_Registro, 103)[Fecha_Registro] from VENTA v");
+                    query.AppendLine("inner join USUARIO u on u.IdUsuario = v.IdUsuario where v.Numero_Documento = @numero");
+                    SqlCommand cmd = new SqlCommand(query.ToString(), connection);
+                    cmd.Parameters.AddWithValue("numero", numero);
+                    cmd.CommandType = CommandType.Text;
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            venta = new Venta()
+                            {
+                                IdVenta = int.Parse(dr["IdVenta"].ToString()),
+                                OUsuario = new Usuario() { NombreCompleto = dr["Nombre_Completo"].ToString() },
+                                DocumentoCliente = dr["Documento_Cliente"].ToString(),
+                                NombreCliente = dr["Nombre_Cliente"].ToString(),
+                                TipoDocumento = dr["Tipo_Documento"].ToString(),
+                                NumeroDocumento = dr["Numero_Documento"].ToString(),
+                                MontoPago = Convert.ToDecimal(dr["Monto_Pago"].ToString()),
+                                MontoCambio= Convert.ToDecimal(dr["Monto_Cambio"].ToString()),
+                                MontoTotal = Convert.ToDecimal(dr["Monto_Total"].ToString()),
+                                FechaRegistro = dr["Fecha_Registro"].ToString()
+                            };
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    venta = new Venta();
+                }
+            }
+            return venta;
+        }
+        public List<DetalleVenta> GetDetalleVentas(int idVenta)
+        {
+            List<DetalleVenta> lista = new List<DetalleVenta>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Conexion.cadena))
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select p.Nombre, dv.Precio_Venta, dv.Cantidad, dv.Sub_Total from DETALLE_VENTA dv");
+                    query.AppendLine("inner join PRODUCTO p on p.IdProducto = dv.IdProducto where dv.IdVenta = @idVenta");
+                    SqlCommand cmd = new SqlCommand(query.ToString(), connection);
+                    cmd.Parameters.AddWithValue("idVenta", idVenta);
+                    cmd.CommandType = CommandType.Text;
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new DetalleVenta()
+                            {
+                                OProducto = new Producto() { Nombre = dr["Nombre"].ToString() },
+                                PrecioVenta = Convert.ToDecimal(dr["Precio_Venta"]),
+                                Cantidad = Convert.ToInt32(dr["Cantidad"]),
+                                SubTotal = Convert.ToDecimal(dr["Sub_Total"])
+                            });
+                        };
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                lista = new List<DetalleVenta>();
+            }
+            return lista;
+        }
     }
 }
