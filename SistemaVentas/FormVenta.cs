@@ -119,6 +119,11 @@ namespace CapaPresentacion
                 txtPrecioVenta.Select();
                 return;
             }
+            if(Convert.ToInt32(txtStock.Text) < Convert.ToInt32(txtCantidad.Value.ToString())){
+                MessageBox.Show("La cantidad no puede ser mayor al stock", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtStock.Select();
+                return;
+            }
             foreach (DataGridViewRow row in dgvData.Rows)
             {
                 if (row.Cells["IdProducto"].Value.ToString() == txtIdProducto.Text)
@@ -134,7 +139,6 @@ namespace CapaPresentacion
                     txtIdProducto.Text,
                     txtNombreProducto.Text,
                     precio.ToString("0.00"),
-                    txtStock.Text.ToString(),
                     txtCantidad.Value.ToString(),
                     (txtCantidad.Value * precio).ToString("0.00")
                 });
@@ -170,7 +174,7 @@ namespace CapaPresentacion
         {
             if (e.RowIndex < 0)
                 return;
-            if (e.ColumnIndex == 6)
+            if (e.ColumnIndex == 5)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var w = Properties.Resources.Remove_24px.Width;
@@ -251,6 +255,66 @@ namespace CapaPresentacion
         private void btnCrearVenta_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtPagaCon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtPagaCon.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+        private void CalcularCambio()
+        {
+            if(txtTotalPagar.Text.Trim() == "")
+            {
+                MessageBox.Show("No existe producto en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            decimal pagaCon;
+            decimal total = Convert.ToDecimal(txtTotalPagar.Text);
+            if(txtPagaCon.Text.Trim() == "")
+            {
+                txtPagaCon.Text = "0";
+            }
+            if(decimal.TryParse(txtPagaCon.Text.Trim(), out pagaCon))
+            {
+                if(pagaCon < total)
+                {
+                    txtCambio.Text = "0.00";
+                }
+                else
+                {
+                    decimal cambio = pagaCon - total;
+                    txtCambio.Text = cambio.ToString("0.00");
+                }
+            }
+        }
+
+        private void txtPagaCon_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyData == Keys.Enter)
+            {
+                CalcularCambio();
+            }
         }
     }
 }
