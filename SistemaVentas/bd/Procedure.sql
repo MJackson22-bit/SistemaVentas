@@ -463,3 +463,26 @@ begin
 		rollback transaction registro
 	end catch
 end
+
+go
+create proc SP_REPRTECOMPRAS(
+@Fecha_Inicio varchar(10),
+@Fecha_Fin varchar(10),
+@IdProveedor int
+)
+as begin
+	set dateformat day;
+	select 
+	convert(char(10), c.Fecha_Registro, 103)[Fecha_Registro],c.Tipo_Documento,c.Numero_Documento,c.Monto_Total,
+	u.Nombre_Completo[Usuario_Registro], pr.Documento[Documento_Proveedor], pr.Razon_Social,
+	p.Codigo[Codigo_Producto], p.Nombre[Nombre_Producto], ca.Descripcion[Categoria], dc.Precio_Venta, dc.Cantidad,
+	dc.Monto_Total[Sub_Total]
+	from COMPRA c
+	inner join USUARIO u on u.IdUsuario = c.IdUsuario
+	inner join PROVEEDOR pr on pr.IdProveedor = c.IdProveedor
+	inner join DETALLE_COMPRA dc on dc.IdCompra = c.IdCompra
+	inner join PRODUCTO p on p.IdProducto = dc.IdProducto
+	inner join CATEGORIA ca on ca.IdCategoria = p.IdCategoria
+	where convert(date,c.Fecha_Registro) between @Fecha_Inicio and @Fecha_Fin
+	and pr.IdProveedor = iif(@IdProveedor = 0, pr.IdProveedor,@IdProveedor)
+end

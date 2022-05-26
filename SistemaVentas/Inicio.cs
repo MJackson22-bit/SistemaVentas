@@ -122,20 +122,6 @@ namespace SistemaVentas
             open_Form(menuMantenedor, new FormNegocio());
         }
 
-        private void iconMenuItem1_Click(object sender, EventArgs e)
-        {
-            open_Form(menuReportes, new FormReportesCompras());
-        }
-
-        private void iconMenuItem2_Click(object sender, EventArgs e)
-        {
-            open_Form(menuReportes, new FormReportesVentas());
-        }
-
-        private void menuReportes_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void menuAcerca_Click(object sender, EventArgs e)
         {
@@ -143,9 +129,14 @@ namespace SistemaVentas
             acercaDe.ShowDialog();
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void subMenuReporteCompras_Click(object sender, EventArgs e)
         {
+            open_Form(menuReportes, new FormReportesCompras());
+        }
 
+        private void subMenuReporteVentas_Click(object sender, EventArgs e)
+        {
+            open_Form(menuReportes, new FormReportesVentas());
         }
     }
 }
