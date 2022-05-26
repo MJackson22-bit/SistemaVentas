@@ -64,5 +64,79 @@ namespace CapaDatos
             }
             return respuesta;
         }
+        public Compra GetCompra(string numero)
+        {
+            Compra compra = new Compra();
+            using (SqlConnection connection = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select c.IdCompra,u.Nombre_Completo, p.Documento, p.Razon_Social,");
+                    query.AppendLine("c.Tipo_Documento, c.Numero_Documento,c.Monto_Total, convert(char(10),c.Fecha_Registro,103)[Fecha_Registro] from COMPRA c");
+                    query.AppendLine("inner join USUARIO u on u.IdUsuario = c.IdUsuario");
+                    query.AppendLine("inner join PROVEEDOR p on p.IdProveedor = c.IdProveedor where c.Numero_Documento = @numero");
+                    SqlCommand cmd = new SqlCommand(query.ToString(), connection);
+                    cmd.Parameters.AddWithValue("numero", numero);
+                    cmd.CommandType = CommandType.Text;
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            compra = new Compra()
+                            {
+                                IdCompra = Convert.ToInt32(dr["IdCompra"]),
+                                OUsuario = new Usuario() { NombreCompleto = dr["Nombre_Completo"].ToString() },
+                                OProveedor = new Proveedor() { Documento = dr["Documento"].ToString(), RazonSocial = dr["Razon_Social"].ToString() },
+                                TipoDocumento = dr["Tipo_Documento"].ToString(),
+                                NumeroDocumento = dr["Numero_Documento"].ToString(),
+                                MontoTotal = Convert.ToDecimal(dr["Monto_Total"].ToString()),
+                                FechaRegistro = dr["Fecha_Registro"].ToString()
+                            };
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    compra = new Compra();
+                }
+            }
+            return compra;
+        }
+        public List<DetalleCompra> GetDetalleCompras(int idCompra)
+        {
+            List<DetalleCompra> lista = new List<DetalleCompra>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Conexion.cadena))
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select p.Nombre, dc.Precio_Compra, dc.Cantidad, dc.Monto_Total from DETALLE_COMPRA dc");
+                    query.AppendLine("inner join PRODUCTO p on p.IdProducto = dc.IdProducto");
+                    query.AppendLine("where dc.IdCompra = @idCompra");
+                    SqlCommand cmd = new SqlCommand(query.ToString(), connection);
+                    cmd.Parameters.AddWithValue("idCompra", idCompra);
+                    cmd.CommandType = CommandType.Text;
+                    connection.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader()){
+                        while (dr.Read())
+                        {
+                            lista.Add(new DetalleCompra()
+                            {
+                                OProducto = new Producto() { Nombre = dr["Nombre"].ToString() },
+                                PrecioCompra = Convert.ToDecimal(dr["Precio_Compra"]),
+                                Cantidad = Convert.ToInt32(dr["Cantidad"]),
+                                MontoTotal = Convert.ToDecimal(dr["Monto_Total"])
+                            });
+                        };
+                    }
+                }
+            }catch(Exception e)
+            {
+                lista = new List<DetalleCompra>();
+            }
+            return lista;
+        }
     }
 }
