@@ -465,13 +465,13 @@ begin
 end
 
 go
-create proc SP_REPRTECOMPRAS(
+create proc SP_REPORTECOMPRAS(
 @Fecha_Inicio varchar(10),
 @Fecha_Fin varchar(10),
 @IdProveedor int
 )
 as begin
-	set dateformat day;
+	set dateformat dmy;
 	select 
 	convert(char(10), c.Fecha_Registro, 103)[Fecha_Registro],c.Tipo_Documento,c.Numero_Documento,c.Monto_Total,
 	u.Nombre_Completo[Usuario_Registro], pr.Documento[Documento_Proveedor], pr.Razon_Social,
@@ -486,3 +486,25 @@ as begin
 	where convert(date,c.Fecha_Registro) between @Fecha_Inicio and @Fecha_Fin
 	and pr.IdProveedor = iif(@IdProveedor = 0, pr.IdProveedor,@IdProveedor)
 end
+go
+
+create proc SP_REPORTEVENTAS(
+@Fecha_Inicio varchar(10),
+@Fecha_Fin varchar(10)
+)
+as begin
+	set dateformat dmy;
+	select 
+	convert(char(10), v.Fecha_Registro, 103)[Fecha_Registro],v.Tipo_Documento,v.Numero_Documento,v.Monto_Total,
+	u.Nombre_Completo[Usuario_Registro], v.Documento_Cliente , v.Nombre_Cliente,
+	p.Codigo[Codigo_Producto], p.Nombre[Nombre_Producto], ca.Descripcion[Categoria], dv.Precio_Venta, dv.Cantidad,
+	dv.Sub_Total
+	from VENTA v
+	inner join USUARIO u on u.IdUsuario = v.IdUsuario
+	inner join DETALLE_VENTA dv on dv.IdVenta = v.IdVenta
+	inner join PRODUCTO p on p.IdProducto = dv.IdProducto
+	inner join CATEGORIA ca on ca.IdCategoria = p.IdCategoria
+	where convert(date,v.Fecha_Registro) between @Fecha_Inicio and @Fecha_Fin
+end
+go
+
