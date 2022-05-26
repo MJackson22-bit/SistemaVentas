@@ -13,6 +13,14 @@ namespace CapaNegocio
     {
 
         private CDVenta objectVenta = new CDVenta();
+        public bool SumarStock(int idproducto, int cantidad)
+        {
+            return objectVenta.SumarStock(idproducto, cantidad);
+        }
+        public bool RestartStock(int idproducto, int cantidad)
+        {
+            return objectVenta.RestartStock(idproducto, cantidad);
+        }
         public int getCorelative()
         {
             return objectVenta.getCorelative();

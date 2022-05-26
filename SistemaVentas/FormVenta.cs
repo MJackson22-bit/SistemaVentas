@@ -134,7 +134,13 @@ namespace CapaPresentacion
             }
             if (!productoExiste)
             {
-                dgvData.Rows.Add(new object[]
+                bool respuesta = new CNVenta().RestartStock(
+                    Convert.ToInt32(txtIdProducto.Text),
+                    Convert.ToInt32(txtCantidad.Value.ToString())
+                    );
+                if (respuesta)
+                {
+                    dgvData.Rows.Add(new object[]
                 {
                     txtIdProducto.Text,
                     txtNombreProducto.Text,
@@ -142,9 +148,10 @@ namespace CapaPresentacion
                     txtCantidad.Value.ToString(),
                     (txtCantidad.Value * precio).ToString("0.00")
                 });
-                calcularTotal();
-                limpiarProducto();
-                txtCodProducto.Select();
+                    calcularTotal();
+                    limpiarProducto();
+                    txtCodProducto.Select();
+                }
             }
         }
 
@@ -193,8 +200,16 @@ namespace CapaPresentacion
                 int indice = e.RowIndex;
                 if (indice >= 0)
                 {
-                    dgvData.Rows.RemoveAt(indice);
-                    calcularTotal();
+                    bool respuesta = new CNVenta().SumarStock(
+                        Convert.ToInt32(dgvData.Rows[indice].Cells["IdProducto"].Value.ToString()),
+                        Convert.ToInt32(dgvData.Rows[indice].Cells["Cantidad"].Value.ToString())
+                    );
+                    if (respuesta)
+                    {
+                        dgvData.Rows.RemoveAt(indice);
+                        calcularTotal();
+                    }
+                   
                 }
             }
         }
@@ -254,7 +269,71 @@ namespace CapaPresentacion
 
         private void btnCrearVenta_Click(object sender, EventArgs e)
         {
-
+            if(txtDocCliente.Text == "")
+            {
+                MessageBox.Show("Debe ingresar documento del cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(txtNombreCliente.Text == "")
+            {
+                MessageBox.Show("Debe el nombre del cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(dgvData.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe ingresa productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            DataTable detalleVenta = new DataTable();
+            detalleVenta.Columns.Add("IdProducto", typeof(int));
+            detalleVenta.Columns.Add("Precio_Venta", typeof(decimal));
+            detalleVenta.Columns.Add("Cantidad", typeof(int));
+            detalleVenta.Columns.Add("Sub_Total", typeof(decimal));
+            foreach(DataGridViewRow row in dgvData.Rows)
+            {
+                detalleVenta.Rows.Add(new object[]
+                {
+                     row.Cells["IdProducto"].Value.ToString(),
+                     row.Cells["Precio"].Value.ToString(),
+                     row.Cells["Cantidad"].Value.ToString(),
+                     row.Cells["SubTotal"].Value.ToString(),
+                });
+            }
+            int idCorelative = new CNVenta().getCorelative();
+            string numeroDocumento = string.Format("{0:00000}", idCorelative);
+            CalcularCambio();
+            Venta venta = new Venta()
+            {
+                OUsuario = new Usuario() { IdUsuario = usuario.IdUsuario },
+                TipoDocumento = ((OpcionCombo)cbTipoDocumento.SelectedItem).Texto,
+                NumeroDocumento = numeroDocumento,
+                DocumentoCliente = txtDocCliente.Text,
+                NombreCliente = txtNombreCliente.Text,
+                MontoPago = Convert.ToDecimal(txtPagaCon.Text),
+                MontoCambio = Convert.ToDecimal(txtCambio.Text),
+                MontoTotal = Convert.ToDecimal(txtTotalPagar.Text),
+            };
+            string message = string.Empty;
+            bool respuesta = new CNVenta().Registar(venta, detalleVenta, out message);
+            if (respuesta)
+            {
+                var result = MessageBox.Show("Numero de venta generada: \n" + numeroDocumento + "\n¿Desea copiar al portapapeles?", "Mensaje",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if(result == DialogResult.OK)
+                {
+                    Clipboard.SetText(numeroDocumento);
+                }
+                txtDocCliente.Text = "";
+                txtNombreCliente.Text = "";
+                dgvData.Rows.Clear();
+                calcularTotal();
+                txtPagaCon.Text = "";
+                txtCambio.Text = "";
+            }
+            else
+            {
+                MessageBox.Show(message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void txtPagaCon_KeyPress(object sender, KeyPressEventArgs e)
