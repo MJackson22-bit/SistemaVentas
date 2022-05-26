@@ -29,13 +29,9 @@ namespace SistemaVentas
             };
             else
                 userCurrent = usuario;
+            userCurrent = usuario;
             InitializeComponent();
         }
-        public Inicio()
-        {
-            InitializeComponent();
-        }
-
         private void contenedor_Paint(object sender, PaintEventArgs e)
         {
 
@@ -51,8 +47,8 @@ namespace SistemaVentas
                 {
                     iconMenu.Visible = false;
                 }
-            }
-            lblUsuario.Text = userCurrent.NombreCompleto;*/
+            }*/
+            lblUsuario.Text = userCurrent.NombreCompleto;
         }
 
         private void open_Form(IconMenuItem menuItem, Form form)
