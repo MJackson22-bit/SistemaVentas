@@ -16,7 +16,9 @@ namespace CapaPresentacion
 {
     public partial class FormVenta : Form
     {
-        private Usuario usuario; 
+        private Usuario usuario;
+        private object txtCodigoProducto;
+
         public FormVenta(Usuario usuario = null)
         {
             this.usuario = usuario;
@@ -100,6 +102,155 @@ namespace CapaPresentacion
                     txtStock.Text = "";
                 }
             }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            decimal precio = 0;
+            bool productoExiste = false;
+            if (int.Parse(txtIdProducto.Text) == 0)
+            {
+                MessageBox.Show("Debe seleccionar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (!decimal.TryParse(txtPrecioVenta.Text, out precio))
+            {
+                MessageBox.Show("Precio Venta - Formato moneda incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPrecioVenta.Select();
+                return;
+            }
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                if (row.Cells["IdProducto"].Value.ToString() == txtIdProducto.Text)
+                {
+                    productoExiste = true;
+                    break;
+                }
+            }
+            if (!productoExiste)
+            {
+                dgvData.Rows.Add(new object[]
+                {
+                    txtIdProducto.Text,
+                    txtNombreProducto.Text,
+                    precio.ToString("0.00"),
+                    txtStock.Text.ToString(),
+                    txtCantidad.Value.ToString(),
+                    (txtCantidad.Value * precio).ToString("0.00")
+                });
+                calcularTotal();
+                limpiarProducto();
+                txtCodProducto.Select();
+            }
+        }
+
+        private void limpiarProducto()
+        {
+            txtIdProducto.Text = "0";
+            txtCodProducto.Text = "";
+            txtCodProducto.BackColor = Color.White;
+            txtNombreProducto.Text = "";
+            txtPrecioVenta.Text = "";
+            txtStock.Text = "";
+            txtCantidad.Value = 1;
+        }
+
+        private void calcularTotal()
+        {
+            decimal total = 0;
+            if (dgvData.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvData.Rows)
+                    total += Convert.ToDecimal(row.Cells["SubTotal"].Value.ToString());
+            }
+            txtTotalPagar.Text = total.ToString("0.00");
+        }
+
+        private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 6)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.Remove_24px.Width;
+                var h = Properties.Resources.Remove_24px.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+                e.Graphics.DrawImage(Properties.Resources.Remove_24px, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvData.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                int indice = e.RowIndex;
+                if (indice >= 0)
+                {
+                    dgvData.Rows.RemoveAt(indice);
+                    calcularTotal();
+                }
+            }
+        }
+
+        private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtPrecioVenta.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+
+        private void dgvData_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (txtPrecioVenta.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        private void btnCrearVenta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
