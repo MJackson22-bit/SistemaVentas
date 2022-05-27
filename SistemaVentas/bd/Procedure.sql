@@ -475,7 +475,7 @@ as begin
 	select 
 	convert(char(10), c.Fecha_Registro, 103)[Fecha_Registro],c.Tipo_Documento,c.Numero_Documento,c.Monto_Total,
 	u.Nombre_Completo[Usuario_Registro], pr.Documento[Documento_Proveedor], pr.Razon_Social,
-	p.Codigo[Codigo_Producto], p.Nombre[Nombre_Producto], ca.Descripcion[Categoria], dc.Precio_Venta, dc.Cantidad,
+	p.Codigo[Codigo_Producto], p.Nombre[Nombre_Producto], ca.Descripcion[Categoria], dc.Precio_Compra, dc.Precio_Venta, dc.Cantidad,
 	dc.Monto_Total[Sub_Total]
 	from COMPRA c
 	inner join USUARIO u on u.IdUsuario = c.IdUsuario
@@ -507,4 +507,3 @@ as begin
 	where convert(date,v.Fecha_Registro) between @Fecha_Inicio and @Fecha_Fin
 end
 go
-
