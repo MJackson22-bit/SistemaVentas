@@ -263,7 +263,7 @@
             this.subMenuReporteCompras.IconColor = System.Drawing.Color.Black;
             this.subMenuReporteCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuReporteCompras.Name = "subMenuReporteCompras";
-            this.subMenuReporteCompras.Size = new System.Drawing.Size(180, 22);
+            this.subMenuReporteCompras.Size = new System.Drawing.Size(166, 22);
             this.subMenuReporteCompras.Text = "Reporte compra";
             this.subMenuReporteCompras.Click += new System.EventHandler(this.subMenuReporteCompras_Click);
             // 
@@ -273,7 +273,7 @@
             this.subMenuReporteVentas.IconColor = System.Drawing.Color.Black;
             this.subMenuReporteVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.subMenuReporteVentas.Name = "subMenuReporteVentas";
-            this.subMenuReporteVentas.Size = new System.Drawing.Size(180, 22);
+            this.subMenuReporteVentas.Size = new System.Drawing.Size(166, 22);
             this.subMenuReporteVentas.Text = "Reporte venta";
             this.subMenuReporteVentas.Click += new System.EventHandler(this.subMenuReporteVentas_Click);
             // 
@@ -363,6 +363,7 @@
             this.iconButton1.Size = new System.Drawing.Size(75, 45);
             this.iconButton1.TabIndex = 6;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // Inicio
             // 

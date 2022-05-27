@@ -72,7 +72,7 @@ namespace CapaPresentacion
                     rc.Categoria,
                     rc.PrecioCompra,
                     rc.PrecioVenta,
-                    rc.Categoria,
+                    rc.Cantidad,
                     rc.SubTotal
                 });
             }
