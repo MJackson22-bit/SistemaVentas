@@ -48,6 +48,7 @@
     <Compile Include="CNPermiso.cs" />
     <Compile Include="CNProducto.cs" />
     <Compile Include="CNProveedor.cs" />
+    <Compile Include="CNReporte.cs" />
     <Compile Include="CNRol.cs" />
     <Compile Include="CNUsuario.cs" />
     <Compile Include="CNVenta.cs" />
